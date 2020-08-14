@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Bon-Apetit</string>
+    <string name="button1">Edit</string>
+    <string name="customername">Kim Jong In</string>
+    <string name="profiletopic">Customer Profile</string>
+    <string name="editbutton">Edit</string>
 </resources>

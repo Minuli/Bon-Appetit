@@ -4,4 +4,12 @@
     <string name="loginPgBusinessName">Bon-Appetit</string>
     <string name="btn_login">Login</string>
     <string name="btnSignUp">Sign up</string>
+    <string name="popularRecipes">Popular Recipes</string>
+    <string name="submarineText">Submarines</string>
+    <string name="clubSandwitchText">Club Sandwitches</string>
+    <string name="pizzaText">Pizza</string>
+    <string name="brownies">Brownies and Cakes</string>
+    <string name="dripCake">Drip Cake</string>
+    <string name="chocolateCake">Chocolate Cake</string>
+    <string name="brownie">Brownies</string>
 </resources>

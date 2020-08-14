@@ -4,4 +4,9 @@
     <string name="loginPgBusinessName">Bon-Appetit</string>
     <string name="btn_login">Login</string>
     <string name="btnSignUp">Sign up</string>
+    <string name="cusname">S.A.Taraka</string>
+    <string name="topic1">Customer Profile</string>
+    <string name="buttonedit">Edit</string>
+    <string name="recipe1">Fried Rice</string>
+    <string name="recipe2">Chicken Pie</string>
 </resources>

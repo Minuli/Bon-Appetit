@@ -42,5 +42,21 @@
     <string name="addRecipe">Add Recipe</string>
     <string name="viewRecipe">View Recipe</string>
     <string name="message2">The recipe of which the details are needed: </string>
+    <string name="brownie1kg">Brownies - 1kg</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="chocolate">Semi-Sweet Cooking Chocolate(Dark)</string>
+    <string name="icingSugar">Icing Sugar</string>
+    <string name="eggs">Eggs</string>
+    <string name="cocoapowder">Cocoa Powder</string>
+    <string name="butter">Butter</string>
+    <string name="flour">Flour</string>
+    <string name="sugar">Brown Sugar</string>
+    <string name="salt">Salt</string>
+    <string name="vanilla">Vanilla Essence</string>
+    <string name="delete">Delete</string>
+    <string name="updateRecipe">Update Recipe</string>
+    <string name="deleteRecipe">Delete Recipe</string>
+    <string name="updateFile">Update Image</string>
+    <string name="orderNow">Order Now</string>
 </resources>
 

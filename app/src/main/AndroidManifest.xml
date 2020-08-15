@@ -9,6 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddStock">
+
+        </activity>
+        <activity android:name=".UserLoginPage">
+
+        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ViewRecipe1">
+
+        </activity>
+        <activity android:name=".AddRecipies">
+        </activity>
+        <activity android:name=".UserLoginPage"></activity>
+        <activity android:name=".FrontEndHome">
+        </activity>
         <activity android:name=".update_stock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,11 +32,6 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".AddStock">
-
-        </activity>
-        <activity android:name=".UserLoginPage"></activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

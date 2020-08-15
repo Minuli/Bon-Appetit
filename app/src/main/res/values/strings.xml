@@ -12,4 +12,15 @@
     <string name="dripCake">Drip Cake</string>
     <string name="chocolateCake">Chocolate Cake</string>
     <string name="brownie">Brownies</string>
+    <string name="addRecipes">Add Recipes</string>
+    <string name="recipeName">Recipe Name</string>
+    <string name="recipeImage">Recipe Image</string>
+    <string name="chooseFile">Choose File</string>
+    <string name="submit">Submit</string>
+    <string name="message1">Use + button to add more ingredients!</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="amount">Amount</string>
+    <string name="chooseIngredient">Choose Ingredient</string>
+    <string name="method">Method</string>
+    <string name="addRecipe">Add Recipe</string>
 </resources>

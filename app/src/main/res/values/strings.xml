@@ -52,4 +52,6 @@
     <string name="delete">Delete</string>
     <string name="updateRecipe">Update Recipe</string>
     <string name="deleteRecipe">Delete Recipe</string>
+    <string name="updateFile">Update Image</string>
+    <string name="orderNow">Order Now</string>
 </resources>

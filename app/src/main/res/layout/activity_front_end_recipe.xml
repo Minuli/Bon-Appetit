@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".FrontEndRecipe">
 
+    <TextView
+        android:id="@+id/brownies1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="georgia"
+        android:text="@string/brownie1kg"
+        android:textColor="#957000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.092" />
+
     <ImageView
         android:id="@+id/hamburger"
         android:layout_width="wrap_content"
@@ -57,22 +72,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08" />
 
-    <TextView
-        android:id="@+id/brownies1kg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/brownie1kg"
-        android:textColor="#AE6905"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.104" />
-
     <ImageView
-        android:id="@+id/brownies"
+        android:id="@+id/brownies5"
         android:layout_width="410dp"
         android:layout_height="204dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -357,6 +358,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/orderNow"
+        android:layout_width="119dp"
+        android:layout_height="39dp"
+        android:background="#EFC68A"
+        android:text="@string/orderNow"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.965"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.092" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

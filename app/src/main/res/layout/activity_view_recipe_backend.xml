@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.997" />
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/arrow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -103,22 +103,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08" />
 
-    <TextView
-        android:id="@+id/brownies1kg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/brownie1kg"
-        android:textColor="#AE6905"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098" />
-
     <ImageView
-        android:id="@+id/brownies"
+        android:id="@+id/brownies5"
         android:layout_width="410dp"
         android:layout_height="204dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -391,32 +377,18 @@
         app:layout_constraintVertical_bias="0.715" />
 
     <Button
-        android:id="@+id/updateRecipe"
-        android:layout_width="157dp"
-        android:layout_height="33dp"
-        android:background="#EDAF43"
-        android:text="@string/updateRecipe"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
-
-    <Button
-        android:id="@+id/deleteRecipe"
-        android:layout_width="156dp"
-        android:layout_height="33dp"
+        android:id="@+id/deleteRecipe2"
+        android:layout_width="154dp"
+        android:layout_height="44dp"
         android:background="#EDAF43"
         android:text="@string/deleteRecipe"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.46" />
 
     <TextView
         android:id="@+id/butter"
@@ -489,6 +461,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.772" />
+
+    <TextView
+        android:id="@+id/brownies1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brownie1kg"
+        android:textColor="#AE6905"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <Button
+        android:id="@+id/updateRecipe5"
+        android:layout_width="148dp"
+        android:layout_height="41dp"
+        android:background="#EDAF43"
+        android:text="@string/updateRecipe"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.461" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

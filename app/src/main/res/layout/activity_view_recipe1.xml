@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ViewRecipe1">
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/arrow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/home" />
 
     <TextView
-        android:id="@+id/viewRecipe1"
+        android:id="@+id/viewTheRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="georgia"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.08" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/pizza"
         android:layout_width="425dp"
         android:layout_height="459dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +108,7 @@
         app:layout_constraintVertical_bias="0.266" />
 
     <TextView
-        android:id="@+id/pizza"
+        android:id="@+id/brownie3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/brownie"

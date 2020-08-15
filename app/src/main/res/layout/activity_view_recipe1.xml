@@ -111,7 +111,7 @@
         android:id="@+id/pizza"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/pizzaText"
+        android:text="@string/brownie"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

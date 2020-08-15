@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageprofile1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,7 @@
         app:tint="@android:color/background_dark" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textcustomerprofile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/home"
@@ -34,7 +34,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/hamburger1"
         android:layout_width="40dp"
         android:layout_height="37dp"
         app:layout_constraintBottom_toBottomOf="parent"

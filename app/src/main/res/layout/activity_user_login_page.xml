@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.521" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonedit1"
         android:layout_width="260dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"

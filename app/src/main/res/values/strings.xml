@@ -4,9 +4,23 @@
     <string name="loginPgBusinessName">Bon-Appetit</string>
     <string name="btn_login">Login</string>
     <string name="btnSignUp">Sign up</string>
-    <string name="cusname">S.A.Taraka</string>
+    <string name="cusname">S.A.Tharaka</string>
     <string name="topic1">Customer Profile</string>
     <string name="buttonedit">Edit</string>
     <string name="recipe1">Fried Rice</string>
     <string name="recipe2">Chicken Pie</string>
+    <string name="editprofile">Edit Profile</string>
+    <string name="buttonedit2">Edit</string>
+    <string name="like1">609</string>
+    <string name="likes2">708</string>
+    <string name="cansel1">Cancel</string>
+    <string name="input1">S.A.Tharaka</string>
+    <string name="Icusname">Fullname</string>
+    <string name="input2">tharaka@gmail.com</string>
+    <string name="email">Email</string>
+    <string name="phone">Contact Number</string>
+    <string name="input3">0763457893</string>
+    <string name="addres">Address</string>
+    <string name="input4">36/8, Colombo</string>
+    <string name="namecustomer">Full Name</string>
 </resources>

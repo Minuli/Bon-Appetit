@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/home" />
 
     <TextView
-        android:id="@+id/addRecipe1"
+        android:id="@+id/viewRecipe1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="georgia"
@@ -305,10 +305,10 @@
         app:layout_constraintVertical_bias="0.957" />
 
     <View
-        android:id="@+id/divider5"
+        android:id="@+id/line"
         android:layout_width="409dp"
         android:layout_height="3dp"
-        android:background="?android:attr/panelFullBackground"
+        android:background="#957000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

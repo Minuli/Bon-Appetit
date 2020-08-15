@@ -23,4 +23,6 @@
     <string name="chooseIngredient">Choose Ingredient</string>
     <string name="method">Method</string>
     <string name="addRecipe">Add Recipe</string>
+    <string name="viewRecipe">View Recipe</string>
+    <string name="message2">The recipe of which the details are needed: </string>
 </resources>

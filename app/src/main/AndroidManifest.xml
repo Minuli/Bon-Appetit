@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddRecipies">
+        <activity android:name=".ViewRecipe1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserLoginPage" >
+        <activity android:name=".AddRecipies">
         </activity>
+        <activity android:name=".UserLoginPage"></activity>
         <activity android:name=".FrontEndHome">
         </activity>
     </application>

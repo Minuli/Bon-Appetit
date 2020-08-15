@@ -49,4 +49,7 @@
     <string name="sugar">Brown Sugar</string>
     <string name="salt">Salt</string>
     <string name="vanilla">Vanilla Essence</string>
+    <string name="delete">Delete</string>
+    <string name="updateRecipe">Update Recipe</string>
+    <string name="deleteRecipe">Delete Recipe</string>
 </resources>

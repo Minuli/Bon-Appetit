@@ -291,7 +291,7 @@
         app:srcCompat="@drawable/box" />
 
     <Button
-        android:id="@+id/bAddRecipe"
+        android:id="@+id/updateRecipe"
         android:layout_width="146dp"
         android:layout_height="50dp"
         android:background="#EDAF43"

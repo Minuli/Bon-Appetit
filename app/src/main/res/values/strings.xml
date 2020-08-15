@@ -12,5 +12,9 @@
     <string name="customername">John</string>
     <string name="editbutton">Edit</string>
     <string name="btnCacncel">Cancel</string>
+    <string name="stock">Stock</string>
+    <string name="stockid">StockID</string>
+    <string name="stockname">Stock Name</string>
+    <string name="unitprice">Unit Price</string>
 
 </resources>

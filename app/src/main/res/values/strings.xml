@@ -58,5 +58,11 @@
     <string name="deleteRecipe">Delete Recipe</string>
     <string name="updateFile">Update Image</string>
     <string name="orderNow">Order Now</string>
+    <string name="appName">Bon-Appetit</string>
+    <string name="cart">Cart</string>
+    <string name="history">Purchase History</string>
+    <string name="profile">User Profile</string>
+    <string name="rating">Ratings</string>
+    <string name="contactUs">Contact Us</string>
 </resources>
 

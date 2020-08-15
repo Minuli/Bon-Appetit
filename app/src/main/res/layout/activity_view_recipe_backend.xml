@@ -158,18 +158,6 @@
         app:tint="#F3F0D5" />
 
     <View
-        android:id="@+id/horizontal1"
-        android:layout_width="409dp"
-        android:layout_height="2dp"
-        android:background="?android:attr/panelFullBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
-
-    <View
         android:id="@+id/horizontal2"
         android:layout_width="409dp"
         android:layout_height="2dp"
@@ -289,7 +277,7 @@
         android:text="@string/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.668" />

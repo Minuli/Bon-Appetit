@@ -25,4 +25,26 @@
     <string name="addRecipe">Add Recipe</string>
     <string name="viewRecipe">View Recipe</string>
     <string name="message2">The recipe of which the details are needed: </string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="cusname">S.A.Tharaka</string>
+    <string name="name2">Full Name</string>
+    <string name="email">tharaka@gmail.com</string>
+    <string name="email2">Email</string>
+    <string name="phn">0763456784</string>
+    <string name="phn2">Contact Number</string>
+    <string name="address">35/67,Colombo</string>
+    <string name="address2">Address</string>
+    <string name="editbtn">Edit</string>
+    <string name="btncancel2">Cancel</string>
+    <string name="topic1">Customer Profile</string>
+    <string name="btnedit1">Edit</string>
+
+    <string name="food1">Fried Rice</string>
+    <string name="food2">Chicken pie</string>
+    <string name="like1">809</string>
+    <string name="like2">503</string>
+
+
+
+
 </resources>

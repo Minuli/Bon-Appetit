@@ -42,6 +42,17 @@
     <string name="addRecipe">Add Recipe</string>
     <string name="viewRecipe">View Recipe</string>
     <string name="message2">The recipe of which the details are needed: </string>
+
+    <string name="bonappetit">Bon-Appetit</string>
+    <string name="basket">Basket</string>
+    <string name="edit">edit</string>
+    <string name="servins">2 servings</string>
+    <string name="price">Rs.2300.00</string>
+    <string name="price2">Rs.2600.00</string>
+    <string name="total">Rs.4900.00</string>
+    <string name="checkout">Check-Out</string>
+    <string name="cancel">Cancel</string>
+
     <string name="editProfile">Edit Profile</string>
     <string name="cusname">S.A.Tharaka</string>
     <string name="name2">Full Name</string>
@@ -90,5 +101,6 @@
     <string name="deleteRecipe">Delete Recipe</string>
     <string name="updateFile">Update Image</string>
     <string name="orderNow">Order Now</string>
+
 </resources>
 

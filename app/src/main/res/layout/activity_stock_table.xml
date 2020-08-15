@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".stock_table"
-    android:background="@drawable/stocktable"
-    >
 
+    >
+    <!-- android:background="@drawable/stocktable" -->
     <TextView
         android:id="@+id/header9"
         android:layout_width="114dp"

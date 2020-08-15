@@ -16,5 +16,31 @@
     <string name="stockid">StockID</string>
     <string name="stockname">Stock Name</string>
     <string name="unitprice">Unit Price</string>
-
+    <string name="lblUpadateStock">Update Stock</string>
+    <string name="lblUP">Unit Price</string>
+    <string name="dummy_qty_val">20kg</string>
+    <string name="dummy_val_ingreditents">Rice(samba)</string>
+    <string name="dummy_up_val">Rs10000/=</string>
+    <string name="popularRecipes">Popular Recipes</string>
+    <string name="submarineText">Submarines</string>
+    <string name="clubSandwitchText">Club Sandwitches</string>
+    <string name="pizzaText">Pizza</string>
+    <string name="brownies">Brownies and Cakes</string>
+    <string name="dripCake">Drip Cake</string>
+    <string name="chocolateCake">Chocolate Cake</string>
+    <string name="brownie">Brownies</string>
+    <string name="addRecipes">Add Recipes</string>
+    <string name="recipeName">Recipe Name</string>
+    <string name="recipeImage">Recipe Image</string>
+    <string name="chooseFile">Choose File</string>
+    <string name="submit">Submit</string>
+    <string name="message1">Use + button to add more ingredients!</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="amount">Amount</string>
+    <string name="chooseIngredient">Choose Ingredient</string>
+    <string name="method">Method</string>
+    <string name="addRecipe">Add Recipe</string>
+    <string name="viewRecipe">View Recipe</string>
+    <string name="message2">The recipe of which the details are needed: </string>
 </resources>
+

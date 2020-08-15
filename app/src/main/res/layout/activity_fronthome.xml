@@ -56,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.405" />
 
     <ImageView
         android:id="@+id/submarine"
@@ -83,7 +83,7 @@
         app:srcCompat="@drawable/clubsandwitch" />
 
     <ImageView
-        android:id="@+id/pizza"
+        android:id="@+id/brownie3"
         android:layout_width="91dp"
         android:layout_height="101dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -144,7 +144,7 @@
         app:srcCompat="@drawable/chocolatedripcake" />
 
     <ImageView
-        android:id="@+id/brownies"
+        android:id="@+id/brownies5"
         android:layout_width="87dp"
         android:layout_height="140dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -229,7 +229,7 @@
         app:layout_constraintVertical_bias="0.079" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/buns"
         android:layout_width="407dp"
         android:layout_height="221dp"
         android:layout_marginStart="4dp"

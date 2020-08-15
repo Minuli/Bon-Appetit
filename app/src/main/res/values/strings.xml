@@ -4,6 +4,19 @@
     <string name="loginPgBusinessName">Bon-Appetit</string>
     <string name="btn_login">Login</string>
     <string name="btnSignUp">Sign up</string>
+    <string name="addstock">Add Stock</string>
+    <string name="Ingredient">Ingredeints</string>
+    <string name="qty">Quantity</string>
+    <string name="btnAdd">Add</string>
+    <string name="profiletopic">Customer Profile</string>
+    <string name="customername">John</string>
+    <string name="editbutton">Edit</string>
+    <string name="btnCacncel">Cancel</string>
+    <string name="lblUpadateStock">Update Stock</string>
+    <string name="lblUP">Unit Price</string>
+    <string name="dummy_qty_val">20kg</string>
+    <string name="dummy_val_ingreditents">Rice(samba)</string>
+    <string name="dummy_up_val">Rs10000/=</string>
     <string name="popularRecipes">Popular Recipes</string>
     <string name="submarineText">Submarines</string>
     <string name="clubSandwitchText">Club Sandwitches</string>

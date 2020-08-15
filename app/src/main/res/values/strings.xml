@@ -4,13 +4,25 @@
     <string name="loginPgBusinessName">Bon-Appetit</string>
     <string name="btn_login">Login</string>
     <string name="btnSignUp">Sign up</string>
-    <string name="addstock">Add Stock</string>
-    <string name="Ingredient">Ingredeints</string>
-    <string name="qty">Quantity</string>
-    <string name="btnAdd">Add</string>
-    <string name="profiletopic">Customer Profile</string>
-    <string name="customername">John</string>
-    <string name="editbutton">Edit</string>
-    <string name="btnCacncel">Cancel</string>
-
+    <string name="popularRecipes">Popular Recipes</string>
+    <string name="submarineText">Submarines</string>
+    <string name="clubSandwitchText">Club Sandwitches</string>
+    <string name="pizzaText">Pizza</string>
+    <string name="brownies">Brownies and Cakes</string>
+    <string name="dripCake">Drip Cake</string>
+    <string name="chocolateCake">Chocolate Cake</string>
+    <string name="brownie">Brownies</string>
+    <string name="addRecipes">Add Recipes</string>
+    <string name="recipeName">Recipe Name</string>
+    <string name="recipeImage">Recipe Image</string>
+    <string name="chooseFile">Choose File</string>
+    <string name="submit">Submit</string>
+    <string name="message1">Use + button to add more ingredients!</string>
+    <string name="ingredient">Ingredient</string>
+    <string name="amount">Amount</string>
+    <string name="chooseIngredient">Choose Ingredient</string>
+    <string name="method">Method</string>
+    <string name="addRecipe">Add Recipe</string>
+    <string name="viewRecipe">View Recipe</string>
+    <string name="message2">The recipe of which the details are needed: </string>
 </resources>

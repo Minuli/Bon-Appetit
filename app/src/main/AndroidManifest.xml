@@ -13,6 +13,9 @@
 
         </activity>
         <activity android:name=".addPost">
+
+
+        </activity>
         <activity android:name=".FrontEndHome">
 
         </activity>
@@ -20,7 +23,14 @@
         <activity android:name=".AddRecipies" />
         <activity android:name=".UserLoginPage" />
         <activity android:name=".update_stock" />
-        <activity android:name=".EditProfile" />
+        <activity android:name=".EditProfile" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
         <activity android:name=".UpdateRecipe" />
         <activity android:name=".ViewRecipeBackend" />
         <activity android:name=".AddStock" />
@@ -28,22 +38,18 @@
         <activity android:name=".Feed" />
 
         <activity android:name=".employee_login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
-        <activity android:name=".Feed" />
-        <activity android:name=".ViewRecipe1" />
-        <activity android:name=".AddRecipies" />
-        <activity android:name=".UserLoginPage" />
-        <activity android:name=".update_stock" />
-        <activity android:name=".FrontEndHome" />
-        <activity android:name=".EditProfile" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".AddStock" />
+
+
+
+
+
+
+
+        <activity android:name=".customerProfile" > </activity>
+
     </application>
 
 </manifest>

@@ -42,7 +42,6 @@
     <string name="addRecipe">Add Recipe</string>
     <string name="viewRecipe">View Recipe</string>
     <string name="message2">The recipe of which the details are needed: </string>
-
     <string name="bonappetit">Bon-Appetit</string>
     <string name="basket">Basket</string>
     <string name="edit">edit</string>
@@ -52,7 +51,6 @@
     <string name="total">Rs.4900.00</string>
     <string name="checkout">Check-Out</string>
     <string name="cancel">Cancel</string>
-
     <string name="editProfile">Edit Profile</string>
     <string name="cusname">S.A.Tharaka</string>
     <string name="name2">Full Name</string>
@@ -66,7 +64,6 @@
     <string name="btncancel2">Cancel</string>
     <string name="topic1">Customer Profile</string>
     <string name="btnedit1">Edit</string>
-
     <string name="food1">Fried Rice</string>
     <string name="food2">Chicken pie</string>
     <string name="like1">809</string>
@@ -78,14 +75,12 @@
     <string name="seemore">See more</string>
     <string name="textname3">W.T.Y.Rathnayaka</string>
     <string name="ingredientflour">flour 1kg</string>
-
     <string name="ingredient40">ingredients</string>
     <string name="ingredientcheese">Mozzarella cheese</string>
     <string name="food4">Pizza</string>
     <string name="textname4">F.H.Cristeen</string>
     <string name="food5">Yellow Rice</string>
     <string name="brownie1kg">Brownies - 1kg</string>
-    <string name="ingredients">Ingredients</string>
     <string name="chocolate">Semi-Sweet Cooking Chocolate(Dark)</string>
     <string name="icingSugar">Icing Sugar</string>
     <string name="eggs">Eggs</string>
@@ -109,7 +104,6 @@
     <string name="settime">12.00PM</string>
     <string name="promocode">Enter Promo Code</string>
     <string name="totaltext">Total:</string>
-
     <string name="appName">Bon-Appetit</string>
     <string name="cart">Cart</string>
     <string name="history">Purchase History</string>
@@ -125,7 +119,6 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-
     <string name="title_activity_employee_login">employee_login</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -146,12 +139,14 @@
     <string name="recpiename1000">Chicken pie</string>
     <string name="ingedientedit200">Chicken</string>
     <string name="howtomake">Cut chicken in to pieces.Then</string>
-
-
-
-
-
     <string name="lbl_emp_id">Employee ID</string>
     <string name="emp_login_title">Employee Login</string>
+    <string name="emp_home_btn1">Add Recepies</string>
+    <string name="emp_home_btn2">View Recepies</string>
+    <string name="emp_home_btn3">Add Ingredients to stock</string>
+    <string name="emp_home_btn4">View Stock</string>
+    <string name="emp_home_btn5">View Orders</string>
+
+
 </resources>
 

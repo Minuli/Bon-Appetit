@@ -138,6 +138,18 @@
     <string name="emp_home_btn3">Add Ingredients to stock</string>
     <string name="emp_home_btn4">View Stock</string>
     <string name="emp_home_btn5">View Orders</string>
+    <string name="topic300">Create an Account</string>
+    <string name="btnregister">Register Now</string>
+    <string name="password">Password</string>
+    <string name="pass">.........</string>
+    <string name="addressupdate">45/89,Malabe</string>
+
+
+
+
+
+
+
 
 
 </resources>

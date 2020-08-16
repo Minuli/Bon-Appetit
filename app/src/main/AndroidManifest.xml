@@ -34,6 +34,53 @@
         <activity android:name=".employee_login" />
         <activity android:name=".employee_home_page"></activity>
         <activity android:name=".customerProfile"></activity>
+
+
+
+
+
+
+
+
+
+
+
+
+        <activity android:name=".history">
+
+
+        </activity>
+
+
+
+
+
+        <activity android:name=".stock_table"></activity>
+
+
+
+
+
+
+
+
+        <activity android:name=".Settings">
+        </activity>
+
+
+
+
+
+
+        <activity android:name=".MainActivity"></activity>
+
+
+
+        <activity android:name=".FrontEndRecipe"></activity>
+
+
+
+
     </application>
 
 </manifest>

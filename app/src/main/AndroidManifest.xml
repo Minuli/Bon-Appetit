@@ -11,13 +11,21 @@
         android:theme="@style/AppTheme">
         <activity android:name=".recipe_table">
         </activity>
-        <activity android:name=".updatePost">
-        </activity>
+
         <activity android:name=".addPost"/>
         <activity android:name=".customerRegistration">
+
+        </activity>
+        <activity android:name=".updatePost">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".orders_table">
         </activity>
+
         <activity android:name=".FrontEndHome"></activity>
         <activity android:name=".ViewRecipe1" />
         <activity android:name=".AddRecipies" />
@@ -35,14 +43,13 @@
         </activity>
         <activity android:name=".customerProfile" > </activity>
         <activity android:name=".ContactUsPage"></activity>
+
         <activity android:name=".history">
         </activity>
-        <activity android:name=".stock_table" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
+        <activity android:name=".stock_table"></activity>
+
+
         <activity android:name=".Settings">
         </activity>
         <activity android:name=".FrontEndRecipe"></activity>

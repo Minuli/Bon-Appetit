@@ -19,11 +19,39 @@
 
         <activity android:name=".FrontEndHome">
         <activity android:name=".employee_home_page">
+        <activity android:name=".history">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+          
+        <activity android:name=".mycart"></activity>
+        <activity android:name=".Feed"></activity>
+        <activity android:name=".FrontEndHome">
+        <activity android:name=".mycart"></activity>
+        <activity android:name=".Feed"></activity>
+        <activity android:name=".FrontEndHome">
+
+        </activity>
+        <activity android:name=".AddStock" />
+        <activity android:name=".AddStock" />
+        <activity android:name=".stock_table"></activity>
+        <activity android:name=".UserLoginPage" />
+        <activity android:name=".ViewRecipe1" />
+        <activity android:name=".AddRecipies" />
+        <activity android:name=".update_stock" />
+        <activity android:name=".ViewRecipe1" />
+        <activity android:name=".AddRecipies" />
+        <activity android:name=".update_stock" />
+        <activity android:name=".EditProfile"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".UpdateRecipe"></activity>
+        <activity android:name=".ViewRecipeBackend"></activity>
+
+          
         <activity android:name=".Settings">
         </activity>
         <activity android:name=".AddStock"></activity>
@@ -45,6 +73,8 @@
         <activity android:name=".FrontEndRecipe"></activity>
         <activity android:name=".ViewRecipeBackend"></activity>
       </activity>
+
+          
     </application>
 
 </manifest>

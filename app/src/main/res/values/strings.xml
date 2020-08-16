@@ -86,7 +86,6 @@
     <string name="textname4">F.H.Cristeen</string>
     <string name="food5">Yellow Rice</string>
     <string name="brownie1kg">Brownies - 1kg</string>
-    <string name="ingredients">Ingredients</string>
     <string name="chocolate">Semi-Sweet Cooking Chocolate(Dark)</string>
     <string name="icingSugar">Icing Sugar</string>
     <string name="eggs">Eggs</string>
@@ -101,6 +100,7 @@
     <string name="deleteRecipe">Delete Recipe</string>
     <string name="updateFile">Update Image</string>
     <string name="orderNow">Order Now</string>
+
     <string name="appName">Bon-Appetit</string>
     <string name="cart">Cart</string>
     <string name="history">Purchase History</string>
@@ -108,5 +108,17 @@
     <string name="rating">Ratings</string>
     <string name="contactUs">Contact Us</string>
 
+    <string name="title_activity_employee_login">employee_login</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="lbl_emp_id">Employee ID</string>
+    <string name="emp_login_title">Employee Login</string>
 </resources>
 

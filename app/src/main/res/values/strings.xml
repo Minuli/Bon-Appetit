@@ -73,7 +73,6 @@
     <string name="like2">503</string>
     <string name="topic3">Bon-Appetit</string>
     <string name="textfood3">Biriyani</string>
-    <string name="ingredients">Ingredients</string>
     <string name="textingredients1">Rice(Samba) 500g</string>
     <string name="textingredients2">chicken  pieces 250g</string>
     <string name="seemore">See more</string>
@@ -107,6 +106,15 @@
     <string name="profile">User Profile</string>
     <string name="rating">Ratings</string>
     <string name="contactUs">Contact Us</string>
+    <string name="title_activity_contact_us">ContactUs</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
 </resources>
 

@@ -18,13 +18,6 @@
           </activity>
 
         <activity android:name=".FrontEndHome">
-
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Settings">
 
@@ -36,8 +29,14 @@
         </activity>
 
         <activity android:name=".UserLoginPage"></activity>
-        <activity android:name=".ViewRecipe1"></activity>
-        <activity android:name=".AddRecipies"></activity>
+        <activity android:name=".ViewRecipe1">
+        </activity>
+        <activity android:name=".AddRecipies">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".update_stock"></activity>
 
         <activity android:name=".EditProfile">
@@ -47,7 +46,8 @@
 
         <activity android:name=".UpdateRecipe">
         </activity>
-        <activity android:name=".FrontEndRecipe"></activity>
+        <activity android:name=".FrontEndRecipe">
+        </activity>
         <activity android:name=".ViewRecipeBackend"></activity>
 
     </application>

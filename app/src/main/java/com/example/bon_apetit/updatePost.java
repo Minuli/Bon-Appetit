@@ -1,12 +1,14 @@
 package com.example.bon_apetit;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class stock_table extends Activity {
+public class updatePost extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stock_table);
+        setContentView(R.layout.activity_update_post);
     }
 }

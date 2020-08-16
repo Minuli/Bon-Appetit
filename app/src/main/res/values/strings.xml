@@ -74,6 +74,18 @@
     <string name="food4">Pizza</string>
     <string name="textname4">F.H.Cristeen</string>
     <string name="food5">Yellow Rice</string>
+    <string name="topic4">Bon-Appetit</string>
+    <string name="name100">Recipe name:</string>
+    <string name="ingredientadd">Add Ingredients:</string>
+    <string name="recipie">How to make:</string>
+    <string name="postbutton">POST</string>
+    <string name="deletebutton">Delete</string>
+    <string name="editebutton20">Edit</string>
+    <string name="texteditprofile1000">Edit Your Post</string>
+    <string name="recpiename1000">Chicken pie</string>
+    <string name="ingedientedit200">Chicken</string>
+    <string name="howtomake">Cut chicken in to pieces.Then</string>
+
 
 
 

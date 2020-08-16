@@ -14,7 +14,17 @@
         <activity android:name=".updatePost">
         </activity>
         <activity android:name=".addPost"></activity>
+
+        <activity android:name=".addPost"/>
         <activity android:name=".customerRegistration">
+
+        </activity>
+        <activity android:name=".updatePost">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".orders_table">
         </activity>
@@ -22,6 +32,9 @@
         </activity>
         <activity android:name=".ViewRecipe1" >
         </activity>
+
+        <activity android:name=".FrontEndHome"></activity>
+        <activity android:name=".ViewRecipe1" />
         <activity android:name=".AddRecipies" />
         <activity android:name=".UserLoginPage" >
         </activity>
@@ -31,9 +44,18 @@
         </activity>
         <activity android:name=".UpdateRecipe">
         </activity>
-        <activity android:name=".ViewRecipeBackend">
+        <activity android:name=".ViewRecipeBackend"></activity>
+        <activity android:name=".customerProfile" > </activity>
+        <activity android:name=".ContactUsPage"></activity>
+
+        <activity android:name=".history">
         </activity>
-        <activity android:name=".AddStock">
+        <activity android:name=".AddStock"></activity>
+
+        <activity android:name=".stock_table"></activity>
+
+
+        <activity android:name=".Settings">
         </activity>
         <activity android:name=".mycart">
         </activity>
@@ -61,9 +83,11 @@
         <activity android:name=".FrontEndRecipe">
         </activity>
         <activity android:name=".payment_one">
+        <activity android:name=".FrontEndRecipe"></activity>
+        <activity android:name=".payment_one">
+
         </activity>
         <activity android:name=".payment_two">
           </activity>
     </application>
-
 </manifest>

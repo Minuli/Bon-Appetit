@@ -9,6 +9,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".updatePost">
+
+        </activity>
+        <activity android:name=".addPost">
+
+
+        </activity>
+        <activity android:name=".FrontEndHome">
+
+        </activity>
+        <activity android:name=".ViewRecipe1" />
+        <activity android:name=".AddRecipies" />
+        <activity android:name=".UserLoginPage" />
+        <activity android:name=".update_stock" />
+        <activity android:name=".EditProfile" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+        <activity android:name=".UpdateRecipe" />
+        <activity android:name=".ViewRecipeBackend" />
+        <activity android:name=".AddStock" />
+        <activity android:name=".mycart" />
+        <activity android:name=".Feed" />
+
+        <activity android:name=".employee_login"></activity>
+        <activity android:name=".employee_home_page">
+
+        </activity>
+        </activity>
+        <activity android:name=".customerProfile" > </activity>
         <activity android:name=".ContactUsPage"></activity>
 
         <activity android:name=".mycart">

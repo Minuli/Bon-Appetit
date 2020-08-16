@@ -8,7 +8,7 @@
     tools:context=".AddRecipies">
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/arrow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,21 +32,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/home" />
-
-    <TextView
-        android:id="@+id/viewRecipe1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="georgia"
-        android:text="@string/addRecipes"
-        android:textColor="#957000"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/recipeName"
@@ -89,7 +74,7 @@
         app:layout_constraintVertical_bias="0.207" />
 
     <Button
-        android:id="@+id/choose1"
+        android:id="@+id/chooseFile"
         android:layout_width="130dp"
         android:layout_height="43dp"
         android:background="#E4D8B0"
@@ -290,20 +275,6 @@
         app:layout_constraintVertical_bias="0.843"
         app:srcCompat="@drawable/box" />
 
-    <Button
-        android:id="@+id/bAddRecipe"
-        android:layout_width="146dp"
-        android:layout_height="50dp"
-        android:background="#EDAF43"
-        android:text="@string/addRecipe"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
-
     <View
         android:id="@+id/line"
         android:layout_width="409dp"
@@ -313,6 +284,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08" />
+
+    <TextView
+        android:id="@+id/addRecipes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addRecipes"
+        android:textColor="#957000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <Button
+        android:id="@+id/addRecipe"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:background="#EDAF43"
+        android:text="@string/addRecipe"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

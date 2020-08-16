@@ -86,6 +86,7 @@
     <string name="textname4">F.H.Cristeen</string>
     <string name="food5">Yellow Rice</string>
     <string name="brownie1kg">Brownies - 1kg</string>
+    <string name="ingredients">Ingredients</string>
     <string name="chocolate">Semi-Sweet Cooking Chocolate(Dark)</string>
     <string name="icingSugar">Icing Sugar</string>
     <string name="eggs">Eggs</string>
@@ -100,6 +101,15 @@
     <string name="deleteRecipe">Delete Recipe</string>
     <string name="updateFile">Update Image</string>
     <string name="orderNow">Order Now</string>
+    <string name="addresstext">Address</string>
+    <string name="payment">Payment</string>
+    <string name="cash">Cash</string>
+    <string name="datetext">Date</string>
+    <string name="date">05/11/2020</string>
+    <string name="settimetext">Set time:</string>
+    <string name="settime">12.00PM</string>
+    <string name="promocode">Enter Promo Code</string>
+    <string name="totaltext">Total:</string>
 
     <string name="appName">Bon-Appetit</string>
     <string name="cart">Cart</string>

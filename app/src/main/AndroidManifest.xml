@@ -13,16 +13,12 @@
         <activity android:name=".customerRegistration">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".orders_table">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".updatePost"></activity>
         <activity android:name=".addPost"></activity>
@@ -47,18 +43,8 @@
         <activity android:name=".stock_table"></activity>
         <activity android:name=".Settings">
         </activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".FrontEndRecipe"></activity>
         <activity android:name=".ContactUsPage" />
-        <activity android:name=".history">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Settings" />
-        <activity android:name=".FrontEndRecipe" />
     </application>
 
 </manifest>

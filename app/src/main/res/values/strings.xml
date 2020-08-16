@@ -100,6 +100,14 @@
     <string name="deleteRecipe">Delete Recipe</string>
     <string name="updateFile">Update Image</string>
     <string name="orderNow">Order Now</string>
+
+    <string name="appName">Bon-Appetit</string>
+    <string name="cart">Cart</string>
+    <string name="history">Purchase History</string>
+    <string name="profile">User Profile</string>
+    <string name="rating">Ratings</string>
+    <string name="contactUs">Contact Us</string>
+
     <string name="title_activity_employee_login">employee_login</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -109,6 +117,21 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="topic4">Bon-Appetit</string>
+    <string name="name100">Recipe name:</string>
+    <string name="ingredientadd">Add Ingredients:</string>
+    <string name="recipie">How to make:</string>
+    <string name="postbutton">POST</string>
+    <string name="deletebutton">Delete</string>
+    <string name="editebutton20">Edit</string>
+    <string name="texteditprofile1000">Edit Your Post</string>
+    <string name="recpiename1000">Chicken pie</string>
+    <string name="ingedientedit200">Chicken</string>
+    <string name="howtomake">Cut chicken in to pieces.Then</string>
+
+
+
+
 
     <string name="lbl_emp_id">Employee ID</string>
     <string name="emp_login_title">Employee Login</string>

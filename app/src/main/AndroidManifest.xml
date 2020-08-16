@@ -37,10 +37,20 @@
         <activity android:name=".mycart" />
         <activity android:name=".Feed" />
 
-        <activity android:name=".employee_login">
+        <activity android:name=".employee_login"></activity>
+        <activity android:name=".employee_home_page">
+
+        </activity>
+
+
 
 
         </activity>
+
+
+
+
+
 
 
 

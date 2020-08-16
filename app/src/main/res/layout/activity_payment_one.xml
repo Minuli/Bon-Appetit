@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".payment_one">
 
-    <TextView
+    <EditText
         android:id="@+id/textView26"
         android:layout_width="224dp"
         android:layout_height="46dp"
         android:background="@drawable/rectangletxtbox"
-        android:text="@string/settime"
+        android:hint="@string/settime"
         android:textAlignment="center"
         android:textColor="#090909"
         android:textSize="18sp"
@@ -52,12 +52,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.618" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView24"
         android:layout_width="224dp"
         android:layout_height="46dp"
         android:background="@drawable/rectangletxtbox"
-        android:text="@string/date"
+        android:hint="@string/date"
         android:textAlignment="center"
         android:textColor="#090909"
         android:textSize="18sp"
@@ -68,12 +68,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.613" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView22"
         android:layout_width="224dp"
         android:layout_height="46dp"
         android:background="@drawable/rectangletxtbox"
-        android:text="@string/email"
+        android:hint="@string/email"
         android:textAlignment="center"
         android:textColor="#090909"
         android:textSize="18sp"
@@ -208,12 +208,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.153" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView5"
         android:layout_width="224dp"
         android:layout_height="46dp"
         android:background="@drawable/rectangletxtbox"
-        android:text="@string/address"
+        android:hint="@string/address"
         android:textAlignment="center"
         android:textColor="#090909"
         android:textSize="18sp"

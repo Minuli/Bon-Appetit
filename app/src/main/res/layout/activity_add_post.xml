@@ -34,31 +34,31 @@
 
     <TextView
         android:id="@+id/addrecipe1"
-        android:layout_width="165dp"
-        android:layout_height="39dp"
+        android:layout_width="170dp"
+        android:layout_height="43dp"
         android:text="@string/name100"
         android:textColor="#0E0E0E"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.527" />
+        app:layout_constraintVertical_bias="0.454" />
 
     <TextView
         android:id="@+id/addrecipie2"
-        android:layout_width="165dp"
-        android:layout_height="39dp"
+        android:layout_width="284dp"
+        android:layout_height="62dp"
         android:text="@string/ingredientadd"
         android:textColor="#100F0D"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.617" />
 
     <TextView
         android:id="@+id/addrecipie3"
@@ -66,7 +66,7 @@
         android:layout_height="39dp"
         android:text="@string/recipie"
         android:textColor="#0C0C0B"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
@@ -113,38 +113,36 @@
 
     <ImageView
         android:id="@+id/textbox7"
-        android:layout_width="248dp"
-        android:layout_height="35dp"
+        android:layout_width="430dp"
+        android:layout_height="42dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524"
+        app:layout_constraintVertical_bias="0.525"
         app:srcCompat="@drawable/textboxes" />
 
     <ImageView
         android:id="@+id/textbox8"
-        android:layout_width="253dp"
-        android:layout_height="33dp"
+        android:layout_width="367dp"
+        android:layout_height="76dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629"
+        app:layout_constraintVertical_bias="0.845"
         app:srcCompat="@drawable/textboxes" />
 
     <ImageView
         android:id="@+id/textbox9"
-        android:layout_width="253dp"
-        android:layout_height="31dp"
+        android:layout_width="363dp"
+        android:layout_height="58dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.734"
+        app:layout_constraintVertical_bias="0.678"
         app:srcCompat="@drawable/textboxes" />
 
     <ImageView
@@ -153,9 +151,10 @@
         android:layout_height="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902"
+        app:layout_constraintVertical_bias="0.944"
         app:srcCompat="@drawable/loginbutton" />
 
     <TextView
@@ -170,7 +169,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/topic4"
-        app:layout_constraintVertical_bias="0.877" />
+        app:layout_constraintVertical_bias="0.922" />
 
     <ImageView
         android:id="@+id/upload"

@@ -17,7 +17,7 @@
           </activity>
 
         <activity android:name=".FrontEndHome">
-   
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,26 +32,24 @@
         <activity android:name=".stock_table">
 
         </activity>
-        
+
         <activity android:name=".UserLoginPage"></activity>
         <activity android:name=".ViewRecipe1"></activity>
         <activity android:name=".AddRecipies"></activity>
         <activity android:name=".update_stock"></activity>
 
-        </activity>
-        
+
+
         <activity android:name=".EditProfile">
 
         </activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".AddStock">
-        </activity>
+
         <activity android:name=".UpdateRecipe">
         </activity>
         <activity android:name=".ViewRecipeBackend">
         </activity>
-        <activity android:name=".AddStock">
-        </activity>
+
 
     </application>
 

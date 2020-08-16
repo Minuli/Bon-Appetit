@@ -73,7 +73,6 @@
     <string name="like2">503</string>
     <string name="topic3">Bon-Appetit</string>
     <string name="textfood3">Biriyani</string>
-    <string name="ingredients">Ingredients</string>
     <string name="textingredients1">Rice(Samba) 500g</string>
     <string name="textingredients2">chicken  pieces 250g</string>
     <string name="seemore">See more</string>
@@ -101,6 +100,14 @@
     <string name="deleteRecipe">Delete Recipe</string>
     <string name="updateFile">Update Image</string>
     <string name="orderNow">Order Now</string>
-
+    <string name="addresstext">Address</string>
+    <string name="payment">Payment</string>
+    <string name="cash">Cash</string>
+    <string name="datetext">Date</string>
+    <string name="date">05/11/2020</string>
+    <string name="settimetext">Set time:</string>
+    <string name="settime">12.00PM</string>
+    <string name="promocode">Enter Promo Code</string>
+    <string name="totaltext">Total:</string>
 </resources>
 

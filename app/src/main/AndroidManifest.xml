@@ -15,6 +15,10 @@
         </activity>
         <activity android:name=".addPost"></activity>
         <activity android:name=".customerRegistration">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".orders_table">
         </activity>
@@ -47,10 +51,7 @@
         <activity android:name=".payment_two">
           </activity>
         <activity android:name=".update_stock">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         
     </application>

@@ -43,13 +43,6 @@
         <activity android:name=".Settings">
         </activity>
         <activity android:name=".FrontEndRecipe"></activity>
-        <activity android:name=".stock_table"></activity>
-        <activity android:name=".Settings">
-        </activity>
-        <activity android:name=".mycart">
-        </activity>
-        <activity android:name=".Feed" >
-        </activity>
         <activity android:name=".payment_one"/>
         <activity android:name=".payment_two">
           </activity>

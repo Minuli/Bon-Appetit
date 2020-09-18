@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "422738214885",
+    "firebase_url": "https://bon-apetit-3a5bf.firebaseio.com",
+    "project_id": "bon-apetit-3a5bf",
+    "storage_bucket": "bon-apetit-3a5bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422738214885:android:1eac792a2f345222f7790c",
+        "android_client_info": {
+          "package_name": "com.example.bon_apetit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422738214885-2lc0085jijhhsjmaq8d6a1nprhnorsop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bon_apetit",
+            "certificate_hash": "31205631c716c22bb4a9b0fda4ff558859b173f1"
+          }
+        },
+        {
+          "client_id": "422738214885-qfvkg1lm0731o8a3h1tvil6m417pcabj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5RZuZEoUEhGxgjReF068CL7poNyoG9Dk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422738214885-qfvkg1lm0731o8a3h1tvil6m417pcabj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

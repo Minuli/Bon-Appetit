@@ -403,6 +403,7 @@
         android:layout_height="55dp"
         android:background="@drawable/roundedtextbox"
         android:text="@string/search"
+        android:paddingTop="10sp"
         android:textAlignment="center"
         android:textColor="#070707"
         android:textSize="24sp"

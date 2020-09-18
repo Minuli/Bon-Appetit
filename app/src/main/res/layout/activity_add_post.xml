@@ -39,6 +39,7 @@
         android:text="@string/name100"
         android:textColor="#0E0E0E"
         android:textSize="24sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.066"
@@ -111,10 +112,13 @@
         app:srcCompat="@android:drawable/ic_input_add"
         app:tint="#FF9800" />
 
-    <ImageView
+    <EditText
         android:id="@+id/textbox7"
-        android:layout_width="430dp"
+        android:layout_width="0dp"
         android:layout_height="42dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rectangletxtbox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -123,21 +127,28 @@
         app:layout_constraintVertical_bias="0.525"
         app:srcCompat="@drawable/textboxes" />
 
-    <ImageView
+    <EditText
         android:id="@+id/textbox8"
-        android:layout_width="367dp"
-        android:layout_height="76dp"
+        android:layout_width="349dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rectangletxtbox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.845"
+        app:layout_constraintVertical_bias="0.831"
         app:srcCompat="@drawable/textboxes" />
 
-    <ImageView
+    <EditText
         android:id="@+id/textbox9"
-        android:layout_width="363dp"
-        android:layout_height="58dp"
+        android:layout_width="339dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rectangletxtbox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,31 +156,20 @@
         app:layout_constraintVertical_bias="0.678"
         app:srcCompat="@drawable/textboxes" />
 
-    <ImageView
-        android:id="@+id/imageView9"
+    <Button
+        android:id="@+id/editbutton56"
         android:layout_width="303dp"
         android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/loginbutton" />
 
-    <TextView
-        android:id="@+id/postbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/postbutton"
-        android:textColor="#0B0909"
+        android:background="@drawable/loginbutton"
+        android:text="@string/btnedit1"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topic4"
-        app:layout_constraintVertical_bias="0.922" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956"
+        app:srcCompat="@drawable/loginbutton" />
 
     <ImageView
         android:id="@+id/upload"

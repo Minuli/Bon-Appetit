@@ -35,41 +35,25 @@
         <activity android:name=".AddStock"></activity>
         <activity android:name=".mycart"></activity>
         <activity android:name=".Feed" ></activity>
-
         <activity android:name=".employee_login"></activity>
         <activity android:name=".employee_home_page">
-
         </activity>
-
-
         <activity android:name=".customerProfile" > </activity>
         <activity android:name=".ContactUsPage"></activity>
-
         <activity android:name=".history">
-
-
         </activity>
-
-
         <activity android:name=".stock_table" />
-
         <activity android:name=".Settings">
         </activity>
-
         <activity android:name=".FrontEndRecipe"></activity>
         <activity android:name=".payment_one">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".payment_two">
-
         </activity>
-
-
-
     </application>
 
 </manifest>

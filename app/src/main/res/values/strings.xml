@@ -1,11 +1,13 @@
 <resources>
+    <string name="editbtn56">Edit</string>
+    <string name="name23">S.A.Tharaka </string>
     <string name="app_name">Bon-Apetit</string>
     <string name="home">Home</string>
     <string name="loginPgBusinessName">Bon-Appetit</string>
     <string name="btn_login">Login</string>
     <string name="btnSignUp">Sign up</string>
     <string name="addstock">Add Stock</string>
-    <string name="Ingredient">Ingredeints</string>
+    <string name="Ingredient">Ingredients</string>
     <string name="qty">Quantity</string>
     <string name="btnAdd">Add</string>
     <string name="profiletopic">Customer Profile</string>
@@ -122,9 +124,6 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_employee_login">employee_login</string>
-
-
-
     <string name="topic4">Bon-Appetit</string>
     <string name="name100">Recipe name:</string>
     <string name="ingredientadd">Add Ingredients:</string>
@@ -185,32 +184,5 @@
     <string name="lbl_reject_order">Reject order</string>
     <string name="btn_reject_order">Reject</string>
     <string name="btn_back">Back</string>
-    <string name="editbtn56">Edit</string>
-    <string name="name23">S.A.Tharaka </string>
-
-
-
-
-
-
+    <string name="lbl_btn_update">Update</string>
 </resources>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -65,7 +65,7 @@
         app:srcCompat="@drawable/downloadwe" />
 
     <Button
-        android:id="@+id/buttonedit1"
+        android:id="@+id/btnreg"
         android:layout_width="304dp"
         android:layout_height="57dp"
         android:background="#77FFC107"

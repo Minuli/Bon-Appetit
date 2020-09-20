@@ -45,7 +45,7 @@
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintVertical_bias="0.149" />
 
     <TextView
         android:id="@+id/recipeImage"
@@ -56,10 +56,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.256" />
 
     <Button
         android:id="@+id/chooseFile"
@@ -69,23 +69,10 @@
         android:text="@string/chooseFile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.626"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
-
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="89dp"
-        android:layout_height="43dp"
-        android:background="#E4D8B0"
-        android:text="@string/submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.247" />
 
     <TextView
         android:id="@+id/method"
@@ -99,7 +86,7 @@
         app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.544" />
+        app:layout_constraintVertical_bias="0.578" />
 
     <View
         android:id="@+id/line"
@@ -141,20 +128,20 @@
 
     <ImageView
         android:id="@+id/imageBox"
-        android:layout_width="319dp"
-        android:layout_height="128dp"
-        android:scaleType="centerInside"
-        android:layout_gravity = "center"
-        android:src="@mipmap/ic_launcher"
+        android:layout_width="313dp"
+        android:layout_height="163dp"
+        android:layout_gravity="center"
         android:background="@drawable/rectangletxtbox"
         android:ems="10"
         android:inputType="textPersonName"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
+        app:layout_constraintVertical_bias="0.403" />
 
     <Button
         android:id="@+id/addIngredients"
@@ -170,33 +157,33 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.947" />
 
-    <Button
-        android:id="@+id/addRecipe"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:background="#EDAF43"
-        android:text="@string/addRecipe"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.947" />
-
     <EditText
         android:id="@+id/methodEnter"
-        android:layout_width="323dp"
-        android:layout_height="167dp"
+        android:layout_width="317dp"
+        android:layout_height="158dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.446"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.773" />
+        app:layout_constraintVertical_bias="0.783" />
+
+    <Button
+        android:id="@+id/home3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#EDAF43"
+        android:text="@string/home"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.947" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

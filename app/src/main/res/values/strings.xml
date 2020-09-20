@@ -196,4 +196,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="addIngredients">Add Ingredients</string>
     <string name="done">DONE</string>
+    <string name="custnic">NIC</string>
 </resources>

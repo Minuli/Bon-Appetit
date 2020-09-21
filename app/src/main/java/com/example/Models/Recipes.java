@@ -1,6 +1,4 @@
-package com.example.bon_apetit;
-
-import android.net.Uri;
+package com.example.Models;
 
 public class Recipes {
 

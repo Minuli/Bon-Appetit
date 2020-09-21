@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -14,13 +15,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.Models.Recipes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
@@ -38,7 +37,6 @@ public class AddRecipesNew extends AppCompatActivity {
     Recipes recipe;
     ImageView imageBox;
     Uri imageUri;
-    long id = 0;
     DatabaseReference db;
     StorageReference storage;
     StorageTask uploadTask;
@@ -56,20 +54,7 @@ public class AddRecipesNew extends AppCompatActivity {
         imageBox = findViewById(R.id.imageBox);
 
         storage = FirebaseStorage.getInstance().getReference();
-        db = FirebaseDatabase.getInstance().getReference().child("Recipes");
-        db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    id=(dataSnapshot.getChildrenCount());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description");
 
         chooseFile.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -84,26 +69,17 @@ public class AddRecipesNew extends AppCompatActivity {
                 if(uploadTask != null && uploadTask.isInProgress()){
                     Toast.makeText(AddRecipesNew.this,"upload unsuccessful",Toast.LENGTH_SHORT).show();
                 }
+                else if(TextUtils.isEmpty(recipeName.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Please enter the name of recipe",Toast.LENGTH_SHORT).show();
+                }
+                else if(TextUtils.isEmpty(method.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Method should be provided",Toast.LENGTH_SHORT).show();
+                }
                 else
                     uploadDetails();
-                Intent myIntent = new Intent(AddRecipesNew.this, AddIngredients.class);
-                startActivity(myIntent);
             }
         });
 
-        recipeName.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-            }
-        });
-
-        method.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-            }
-        });
     }
     private void openFileChoosed(){
         Intent myIntent = new Intent();
@@ -138,23 +114,24 @@ public class AddRecipesNew extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Toast.makeText(AddRecipesNew.this,"successfully uploaded",Toast.LENGTH_SHORT).show();
                     try {
-                        recipe = new Recipes(method.getText().toString().trim(),
-                                storage.getDownloadUrl().toString(),
-                                recipeName.getText().toString().trim());
-                        //String uploadCheck = db.push().getKey();
-                        //db.child(uploadCheck).setValue(recipe);
-                        db.child(String.valueOf(id+1)).setValue(recipe);
+                            recipe = new Recipes();
+                            recipe.setMethod(method.getText().toString().trim());
+                            recipe.setImageUrl(storage.getDownloadUrl().toString());
+                            db.child(recipeName.getText().toString()).setValue(recipe);
+                            Intent myIntent = new Intent(AddRecipesNew.this, AddIngredients.class);
+                            myIntent.putExtra("RecipeName",recipeName.getText().toString());
+                            startActivity(myIntent);
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }
                 }
             })
                     .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(AddRecipesNew.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-                }
-            });
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AddRecipesNew.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
         }else{
             Toast.makeText(AddRecipesNew.this,"Details are not completely filled",Toast.LENGTH_SHORT).show();

@@ -186,4 +186,5 @@
     <string name="btn_back">Back</string>
     <string name="lbl_btn_update">Update</string>
     <string name="custnic">NIC</string>
+    <string name="choose">choose image</string>
 </resources>

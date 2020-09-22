@@ -8,6 +8,8 @@ public class Customer {
     private String address;
     private String password;
 
+
+
     public Customer() {
     }
 
@@ -26,6 +28,7 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getNic() {
         return nic;
@@ -58,4 +61,7 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }
+

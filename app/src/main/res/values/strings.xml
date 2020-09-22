@@ -196,6 +196,7 @@
     <string name="addIngredients">Add Ingredients</string>
     <string name="done">DONE</string>
     <string name="custnic">NIC</string>
+    <string name="category">Category</string>
     <string name="Cash">Cash</string>
     <string name="Card">Card</string>
     <string name="txtrol">Reorder Level</string>

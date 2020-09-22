@@ -32,7 +32,7 @@ public class AddRecipesNew extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    EditText recipeName,method;
+    EditText recipeName,method, category;
     Button addIngredients, home, chooseFile;
     Recipes recipe;
     ImageView imageBox;
@@ -48,6 +48,7 @@ public class AddRecipesNew extends AppCompatActivity {
 
         recipeName = findViewById(R.id.recipe);
         method = findViewById(R.id.methodEnter);
+        category = findViewById(R.id.txtCategory);
         addIngredients = findViewById(R.id.addIngredients);
         home = findViewById(R.id.home3);
         chooseFile = findViewById(R.id.chooseFile);
@@ -71,6 +72,9 @@ public class AddRecipesNew extends AppCompatActivity {
                 }
                 else if(TextUtils.isEmpty(recipeName.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Please enter the name of recipe",Toast.LENGTH_SHORT).show();
+                }
+                else if(TextUtils.isEmpty(category.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Please enter the category of recipe",Toast.LENGTH_SHORT).show();
                 }
                 else if(TextUtils.isEmpty(method.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Method should be provided",Toast.LENGTH_SHORT).show();
@@ -114,13 +118,14 @@ public class AddRecipesNew extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Toast.makeText(AddRecipesNew.this,"successfully uploaded",Toast.LENGTH_SHORT).show();
                     try {
-                            recipe = new Recipes();
-                            recipe.setMethod(method.getText().toString().trim());
-                            recipe.setImageUrl(storage.getDownloadUrl().toString());
-                            db.child(recipeName.getText().toString()).setValue(recipe);
-                            Intent myIntent = new Intent(AddRecipesNew.this, AddIngredients.class);
-                            myIntent.putExtra("RecipeName",recipeName.getText().toString());
-                            startActivity(myIntent);
+                        recipe = new Recipes();
+                        recipe.setMethod(method.getText().toString().trim());
+                        recipe.setImageUrl(storage.getDownloadUrl().toString());
+                        recipe.setCategory(category.getText().toString().trim());
+                        db.child(recipeName.getText().toString()).setValue(recipe);
+                        Intent myIntent = new Intent(AddRecipesNew.this, AddIngredients.class);
+                        myIntent.putExtra("RecipeName",recipeName.getText().toString());
+                        startActivity(myIntent);
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }

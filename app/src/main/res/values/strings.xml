@@ -197,4 +197,5 @@
     <string name="addIngredients">Add Ingredients</string>
     <string name="done">DONE</string>
     <string name="custnic">NIC</string>
+    <string name="category">Category</string>
 </resources>

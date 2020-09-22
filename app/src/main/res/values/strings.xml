@@ -197,4 +197,9 @@
     <string name="addIngredients">Add Ingredients</string>
     <string name="done">DONE</string>
     <string name="custnic">NIC</string>
+    <string name="txtrol">Reorder Level</string>
+    <string name="txtup">Unit price</string>
+    <string name="measureunitKg">kg</string>
+    <string name="measureunitliters">Liters</string>
+    <string name="measureunitother">Other</string>
 </resources>

@@ -186,4 +186,9 @@
     <string name="btn_back">Back</string>
     <string name="lbl_btn_update">Update</string>
     <string name="custnic">NIC</string>
+    <string name="txtrol">Reorder Level</string>
+    <string name="txtup">Unit price</string>
+    <string name="measureunitKg">kg</string>
+    <string name="measureunitliters">Liters</string>
+    <string name="measureunitother">Other</string>
 </resources>

@@ -185,7 +185,7 @@
         app:srcCompat="@drawable/upload" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnproceed"
         android:layout_width="331dp"
         android:layout_height="160dp"
         android:background="#27FFC107"

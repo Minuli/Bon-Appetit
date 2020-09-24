@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bon_apetit">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ViewRecipeNew"></activity>
         <activity android:name=".AddRecipesNew">
+
 
         </activity>
         <activity android:name=".recipe_table">
@@ -33,6 +35,16 @@
         </activity>
         <activity android:name=".ViewRecipe1" >
         </activity>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       
+        
+
         <activity android:name=".AddRecipies" />
         <activity android:name=".UserLoginPage" >
         </activity>
@@ -68,4 +80,5 @@
         <activity android:name=".update_stock">
         </activity>
     </application>
+
 </manifest>

@@ -68,7 +68,7 @@ public class AddIngredients extends AppCompatActivity {
                     else {
                         ingredients = new Ingredients();
                         ingredients.setIngredient(ingredient.getText().toString().trim());
-                        ingredients.setAmount(amount.getText().toString());
+                        ingredients.setAmount(amount.getText().toString().trim());
                         db.child("Ingredient" + String.valueOf(ingredientId + 1)).setValue(ingredients);
                     }
 

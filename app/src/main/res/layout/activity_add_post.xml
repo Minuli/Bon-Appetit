@@ -99,21 +99,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.087" />
 
-    <ImageView
-        android:id="@+id/addbutton3"
-        android:layout_width="60dp"
-        android:layout_height="54dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.925"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="#FF9800" />
-
     <EditText
-        android:id="@+id/textbox7"
+        android:id="@+id/recipename"
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="32dp"
@@ -124,11 +111,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525"
+        app:layout_constraintVertical_bias="0.515"
         app:srcCompat="@drawable/textboxes" />
 
     <EditText
-        android:id="@+id/textbox8"
+        android:id="@+id/method"
         android:layout_width="349dp"
         android:layout_height="41dp"
         android:layout_marginStart="32dp"
@@ -142,7 +129,7 @@
         app:srcCompat="@drawable/textboxes" />
 
     <EditText
-        android:id="@+id/textbox9"
+        android:id="@+id/ingredie"
         android:layout_width="339dp"
         android:layout_height="43dp"
         android:layout_marginStart="32dp"
@@ -162,7 +149,7 @@
         android:layout_height="63dp"
 
         android:background="@drawable/loginbutton"
-        android:text="@string/btnedit1"
+        android:text="@string/submit"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -184,8 +171,8 @@
         app:layout_constraintVertical_bias="0.131"
         app:srcCompat="@drawable/upload" />
 
-    <Button
-        android:id="@+id/btnproceed"
+    <ImageView
+        android:id="@+id/imagerec"
         android:layout_width="331dp"
         android:layout_height="160dp"
         android:background="#27FFC107"
@@ -194,6 +181,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.183" />
+
+    <Button
+        android:id="@+id/choosebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#DFD472"
+        android:text="@string/addpost"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

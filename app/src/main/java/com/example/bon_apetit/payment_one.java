@@ -48,7 +48,7 @@ public class payment_one extends AppCompatActivity {
         cashorcard=findViewById(R.id.radioCash);
         date=findViewById(R.id.txtdate);
         time=findViewById(R.id.txttime);
-        proceed=findViewById(R.id.btnproceed);
+        proceed=findViewById(R.id.imagerec);
         cancel=findViewById(R.id.btncancel);
 
 

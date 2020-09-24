@@ -32,22 +32,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Annabeth Chase"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
-
     <ImageView
-        android:id="@+id/feed"
+        android:id="@+id/Home"
         android:layout_width="80dp"
         android:layout_height="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,7 +90,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/logo"
         app:layout_constraintVertical_bias="0.898"
-        app:srcCompat="@drawable/plus" />
+        app:srcCompat="@drawable/ic_heart" />
 
     <ImageView
         android:id="@+id/imageView17"
@@ -177,10 +163,10 @@
         app:layout_constraintVertical_bias="0.829" />
 
     <TextView
-        android:id="@+id/rating1"
+        android:id="@+id/feed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rating"
+        android:text="@string/foodhub"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,7 +177,7 @@
         app:layout_constraintVertical_bias="0.899" />
 
     <TextView
-        android:id="@+id/contact1"
+        android:id="@+id/contactus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/contactUs"
@@ -213,7 +199,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182"
-        app:srcCompat="@drawable/pic" />
+        app:layout_constraintVertical_bias="0.2"
+        app:srcCompat="@drawable/settingimage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

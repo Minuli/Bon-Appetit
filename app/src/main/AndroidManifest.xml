@@ -12,10 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AddRecipesNew">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".recipe_table">
         </activity>
@@ -29,6 +26,10 @@
         <activity android:name=".orders_table">
         </activity>
         <activity android:name=".FrontEndHome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ViewRecipe1" >
         </activity>
@@ -55,6 +56,7 @@
         </activity>
         <activity android:name=".stock_table" />
         <activity android:name=".Settings">
+            
         </activity>
         <activity android:name=".FrontEndRecipe"></activity>
 

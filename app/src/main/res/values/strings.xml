@@ -203,4 +203,6 @@
     <string name="measureunitKg">kg</string>
     <string name="measureunitliters">Liters</string>
     <string name="measureunitother">Other</string>
+    <string name="addpost">addpost</string>
+    <string name="foodhub">Food Hub</string>
 </resources>

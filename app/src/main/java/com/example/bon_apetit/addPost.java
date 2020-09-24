@@ -56,10 +56,10 @@ public class addPost extends AppCompatActivity {
         recipieName = findViewById(R.id.recipename);
         method = findViewById(R.id.method);
         ingredients = findViewById(R.id.ingredie);
-        method = findViewById(R.id.method);
+
         choosephoto = findViewById(R.id.choosebutton);
         submit = findViewById(R.id.editbutton56);
-        image = findViewById(R.id.button2);
+        image = findViewById(R.id.imagerec);
 
         stoRef = FirebaseStorage.getInstance().getReference();
         dbRef = FirebaseDatabase.getInstance().getReference().child("CustomerPost");

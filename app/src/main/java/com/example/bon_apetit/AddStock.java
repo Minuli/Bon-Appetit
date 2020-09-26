@@ -1,5 +1,6 @@
 package com.example.bon_apetit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -91,6 +92,8 @@ public class AddStock extends AppCompatActivity {
                                 iqty.setText("");
                                 irol.setText("");
                                 iup.setText("");
+                                Intent intent = new Intent(getApplicationContext(),stock_table.class);
+                                startActivity(intent);
                             }
 
                             @Override

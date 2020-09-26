@@ -191,4 +191,8 @@
     <string name="measureunitKg">kg</string>
     <string name="measureunitliters">Liters</string>
     <string name="measureunitother">Other</string>
+    <string name="propictitle">Select profile picture</string>
+    <string name="btnupload">upload</string>
+    <string name="btnskip">Skip</string>
+    <string name="btnselect">+</string>
 </resources>

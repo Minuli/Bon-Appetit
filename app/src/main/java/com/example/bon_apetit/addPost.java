@@ -19,6 +19,7 @@ import com.example.Models.Customer;
 import com.example.Models.CustomerPost;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,10 +41,11 @@ public class addPost extends AppCompatActivity {
      ImageView image;
 
      Uri photoUri;
-    long postid =0;
+    String postid ;
     DatabaseReference dbRef;
     StorageReference stoRef;
      StorageTask upload;
+     FirebaseAuth fauth;
 
 
 
@@ -62,13 +64,15 @@ public class addPost extends AppCompatActivity {
         image = findViewById(R.id.imagerec);
 
         stoRef = FirebaseStorage.getInstance().getReference();
-        dbRef = FirebaseDatabase.getInstance().getReference().child("CustomerPost");
+        fauth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference().child("CustomerPost").child(fauth.getCurrentUser().getUid());
 
+        postid = fauth.getCurrentUser().getUid();
          dbRef.addValueEventListener(new ValueEventListener() {
              @Override
              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                  if(dataSnapshot.exists()){
-                     postid = (dataSnapshot.getChildrenCount());
+
                  }
              }
 

@@ -2,6 +2,7 @@ package com.example.bon_apetit;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,7 +82,7 @@ public class AddStock extends AppCompatActivity {
                         int radioId = radioGroup.getCheckedRadioButtonId();
                         radioButton = findViewById(radioId);
                         stock.setUnit(radioButton.getText().toString());
-                        db.push().setValue(stock);
+                        db.child(stock.getName()).setValue(stock);
                         db.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {

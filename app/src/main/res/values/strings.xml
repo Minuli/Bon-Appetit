@@ -196,6 +196,7 @@
     <string name="addIngredients">Add Ingredients</string>
     <string name="done">DONE</string>
     <string name="custnic">NIC</string>
+    <string name="category">Category</string>
     <string name="Cash">Cash</string>
     <string name="Card">Card</string>
     <string name="txtrol">Reorder Level</string>
@@ -203,6 +204,10 @@
     <string name="measureunitKg">kg</string>
     <string name="measureunitliters">Liters</string>
     <string name="measureunitother">Other</string>
+    <string name="propictitle">Select profile picture</string>
+    <string name="btnupload">upload</string>
+    <string name="btnskip">Skip</string>
+    <string name="btnselect">+</string>
     <string name="addpost">addpost</string>
     <string name="foodhub">Food Hub</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>

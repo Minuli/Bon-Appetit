@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.Models.Stock;
 import com.example.adapters.DisplayStockAdapter;
@@ -22,6 +25,8 @@ import java.util.ArrayList;
 public class stock_table extends AppCompatActivity {
     RecyclerView recyclerView;
     Stock stock;
+    Button baddstock;
+
     //firebase
     private DatabaseReference dbref;
 
@@ -53,8 +58,17 @@ public class stock_table extends AppCompatActivity {
         //getdata method
         GetDataFromFirebase();
 
+        baddstock = findViewById(R.id.btnaddstock);
         radapter= new DisplayStockAdapter(getApplicationContext(),istock);
         recyclerView.setAdapter(radapter);
+
+        baddstock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AddStock.class);
+                startActivity(intent);
+            }
+        });
 
     }
     private void GetDataFromFirebase(){
@@ -68,7 +82,7 @@ public class stock_table extends AppCompatActivity {
                     stock = new Stock();
                     stock.setName(snapshot.child("name").getValue().toString());
                     stock.setQty(Integer.parseInt(snapshot.child("qty").getValue().toString()));
-                    stock.setName(snapshot.child("unitprice").getValue().toString());
+                    stock.setUnitprice(Float.valueOf(snapshot.child("unitprice").getValue().toString()));
 
                     istock.add(stock);
                 }

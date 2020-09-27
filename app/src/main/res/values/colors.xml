@@ -8,6 +8,9 @@
     <color name="white">#FFFFFF</color>
     <color name="red">#F60E0E</color>
     <color name="green">#4CAF50</color>
+    <color name="black">#000000</color>
     <color name="bonAppetitColor">#955A04</color>
     <color name="horizontalDividerColor">#957000</color>
+    <color name = "dbrown">#957000</color>
+    <color name = "lightBrown">#D8AF32</color>
 </resources>

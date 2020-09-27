@@ -1,5 +1,7 @@
 package com.example.Models;
 
+import android.net.Uri;
+
 public class Recipes {
 
     private String recipeName;

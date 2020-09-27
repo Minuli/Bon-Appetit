@@ -204,4 +204,8 @@
     <string name="measureunitKg">kg</string>
     <string name="measureunitliters">Liters</string>
     <string name="measureunitother">Other</string>
+    <string name="title_activity_view_full_recipe_new">ScrollingActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_display_recipe_scroll">ScrollingActivity</string>
+
 </resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+tools:context=".DisplayRecipeScroll"
+tools:showIn="@layout/activity_display_recipe_scroll">
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/recipeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/recipeName"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/recipe"
+        android:layout_width="203dp"
+        android:layout_height="31dp"
+        android:layout_alignBaseline="@id/recipeName"
+        android:background="@drawable/rectangletxtbox"
+        android:ems="10"
+        android:layout_marginStart="170dp"/>
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textColor="#000000"
+        android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="90dp"/>
+
+    <EditText
+        android:id="@+id/txtCategory"
+        android:layout_width="201dp"
+        android:layout_height="33dp"
+        android:ems="10"
+        android:background="@drawable/rectangletxtbox"
+        android:layout_alignBaseline="@id/category"
+        android:layout_marginStart="170dp"/>
+
+    <TextView
+        android:id="@+id/recipeImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recipeImage"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="170dp"
+        android:text="@string/updateFile"
+        android:layout_alignBaseline="@id/recipeImage"/>
+
+    <ImageView
+        android:id="@+id/imageBox"
+        android:layout_width="312dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/rectangletxtbox"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/method"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:layout_marginTop="490dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/methodText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="540dp"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+
+</RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

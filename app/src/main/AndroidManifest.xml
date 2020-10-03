@@ -28,8 +28,6 @@
         <activity android:name=".customerRegistration" android:parentActivityName=".UserLoginPage">
         </activity>
         <activity android:name=".orders_table"></activity>
-       
-        <activity android:name=".ViewRecipe1"></activity>
         <activity android:name=".AddRecipies" />
         <activity android:name=".UserLoginPage">
 
@@ -52,16 +50,13 @@
         <activity android:name=".Settings" />
         <activity android:name=".FrontEndRecipe" />
         <activity android:name=".payment_one" />
-        <activity android:name=".payment_two">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".payment_two"></activity>
+        <activity android:name=".update_stock"></activity>
+        <activity android:name=".ViewRecipeNew">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".update_stock" />
-        <activity android:name=".ViewRecipeNew" />
-        <activity android:name=".updatePost"></activity>
+        <activity android:name=".updatePost">
+        </activity>
         <activity android:name=".FrontEndHome"></activity>
         <activity android:name=".Settings"></activity>
         <activity android:name=".updatePost">
@@ -76,23 +71,21 @@
         <activity android:name=".UploadButton">
         </activity>
         <activity android:name=".HomepageActivityNew">
+
         </activity>
         <activity
             android:name=".DisplayRecipeScroll"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ViewRecipeNew">
+        <activity android:name=".AddRecipesNew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddRecipesNew">
-        </activity>
         <activity android:name=".recipe_table" />
         <activity android:name=".AddIngredients" />
         <activity android:name=".ViewRecipeBackend" />
-
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

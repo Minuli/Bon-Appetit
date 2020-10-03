@@ -163,7 +163,7 @@ public class EditProfile extends AppCompatActivity {
                         }
                     });
                     Toast.makeText(getApplicationContext(),"Account details updated successfully",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(),FrontEndHome.class);
+                    Intent intent = new Intent(getApplicationContext(),HomepageActivityNew.class);
                     finish();
                     startActivity(intent);
 
@@ -208,7 +208,7 @@ public class EditProfile extends AppCompatActivity {
                                 });
                             }
                         }
-                        Intent intent = new Intent(getApplicationContext(),FrontEndHome.class);
+                        Intent intent = new Intent(getApplicationContext(),HomepageActivityNew.class);
                         startActivity(intent);
                     }catch (Exception e){
                         System.out.println(e.getMessage());

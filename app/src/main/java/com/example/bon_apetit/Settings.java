@@ -29,7 +29,7 @@ public class Settings extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(Settings.this,FrontEndHome.class);
+                Intent intent =new Intent(Settings.this,HomepageActivityNew.class);
                 startActivity(intent);
             }
         });

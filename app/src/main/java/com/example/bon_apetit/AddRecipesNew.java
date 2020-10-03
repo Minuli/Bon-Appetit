@@ -131,7 +131,7 @@ public class AddRecipesNew extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(AddRecipesNew.this,"successfully uploaded",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddRecipesNew.this,"Success",Toast.LENGTH_SHORT).show();
                     try {
                         recipe = new Recipes();
                         recipe.setRecipeName(recipeName.getText().toString().trim());

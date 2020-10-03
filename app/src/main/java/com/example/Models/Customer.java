@@ -10,6 +10,8 @@ public class Customer {
     private String password;
     private String imageuri;
 
+
+
     public Customer() {
     }
 
@@ -45,6 +47,7 @@ public class Customer {
         this.name = name;
     }
 
+
     public String getNic() {
         return nic;
     }
@@ -76,4 +79,7 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }
+

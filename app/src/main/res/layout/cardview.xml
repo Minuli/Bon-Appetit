@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LeanerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    android:layout_weidht="match_parent ">
+    android:weightSum="2">
+    android:orientation="horizontal">
+
+<LeanerLayout>
+    android:layout_height="match_parent">
+    android:layout_widtht="wrap_content">
+    android:layout_weight="1">
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_widtht="match_parent"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_widtht="match_parent"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_widtht="match_parent"
+        android:text="@string/name"
+        android:textSize="15sp"
+         android:textStyle="bold"/>
+
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_widtht="match_parent"/>
+
+
+</LeanerLayout>
+    <LeanerLayout>
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+        android:layout_height="match_parent"
+            <ImageView
+                android:layout_height="match_parent"
+                android:layout_widtht="match_parent"
+                android:id="@+id/post"/>
+
+    </LeanerLayout>
+</LeanerLayout>

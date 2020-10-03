@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.281" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btncheckout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.088" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btncancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

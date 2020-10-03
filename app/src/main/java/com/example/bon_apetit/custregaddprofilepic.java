@@ -3,11 +3,19 @@ package com.example.bon_apetit;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -18,6 +26,7 @@ import com.example.Models.Customer;
 import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -26,16 +35,18 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+
 public class custregaddprofilepic extends AppCompatActivity {
-    private static final int PICK_IMAGE_REQUEST =1;
+    private static final int PICK_IMAGE_REQUEST =100;
     ImageView imageView;
-    Button btnadd,btnupload,btnskip;
+    Button btnadd,btnupload;
     Uri propicuir;
     DatabaseReference db;
     StorageReference storage;
     StorageTask uploadTask;
     Customer customer;
-
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,30 +58,19 @@ public class custregaddprofilepic extends AppCompatActivity {
         imageView = findViewById(R.id.imgpropic);
         btnadd = findViewById(R.id.btnselectpic);
         btnupload = findViewById(R.id.btnuploadpic);
-        btnskip = findViewById(R.id.btnskip);
+        progressDialog = new ProgressDialog(custregaddprofilepic.this);
 
-        storage = FirebaseStorage.getInstance().getReference();
+        storage = FirebaseStorage.getInstance().getReference().child("Customer").child(uid);
         db = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid).child("profilePic");
+
+
+
 
         btnadd.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
                 openFileChoosed();
-            }
-        });
-
-        btnupload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (uploadTask != null && uploadTask.isInProgress()){
-                    Toast.makeText(getApplicationContext(),"failed to upload view",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    //StorageReference storageReference = storage.child(getpropic(propicuir));
-                    uploadpic();
-                }
-
             }
         });
     }
@@ -88,6 +88,8 @@ public class custregaddprofilepic extends AppCompatActivity {
     }
     private void uploadpic(){
         if(propicuir != null){
+            progressDialog.setTitle("Uploading image");
+            progressDialog.show();
             StorageReference storageReference  = storage.child(getpropic(propicuir));
             uploadTask = storageReference.putFile(propicuir).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -95,8 +97,20 @@ public class custregaddprofilepic extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Photo uploaded successfully",Toast.LENGTH_SHORT).show();
                     try{
                         customer = new Customer();
-                        customer.setImageuri(storage.getDownloadUrl().toString());
-                        db.setValue(customer);
+                        if(taskSnapshot.getMetadata() != null){
+                            if(taskSnapshot.getMetadata().getReference() !=null){
+                                Task<Uri> resultn= taskSnapshot.getStorage().getDownloadUrl();
+                                resultn.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        String imageUri = uri.toString();
+                                        customer.setImageuri(imageUri);
+                                        db.setValue(customer);
+                                    }
+                                });
+
+                            }
+                        }
                         Intent intent = new Intent(getApplicationContext(),UserLoginPage.class);
                         startActivity(intent);
                         finish();
@@ -121,6 +135,7 @@ public class custregaddprofilepic extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!=null){
+            System.out.println("data file storage : "+data);
             propicuir = data.getData();
             Picasso.get().load(propicuir).into(imageView);
         }

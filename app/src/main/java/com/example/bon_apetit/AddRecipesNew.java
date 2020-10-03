@@ -1,5 +1,6 @@
 package com.example.bon_apetit;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.Models.Recipes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -27,12 +29,11 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 
-
 public class AddRecipesNew extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    EditText recipeName,method, category;
+    EditText recipeName,method,servings,price;
     Button addIngredients, home, chooseFile;
     Recipes recipe;
     ImageView imageBox;
@@ -40,6 +41,7 @@ public class AddRecipesNew extends AppCompatActivity {
     DatabaseReference db;
     StorageReference storage;
     StorageTask uploadTask;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +50,14 @@ public class AddRecipesNew extends AppCompatActivity {
 
         recipeName = findViewById(R.id.recipe);
         method = findViewById(R.id.methodEnter);
-        category = findViewById(R.id.txtCategory);
+        servings = findViewById(R.id.txtServings);
         addIngredients = findViewById(R.id.addIngredients);
         home = findViewById(R.id.home3);
         chooseFile = findViewById(R.id.chooseFile);
         imageBox = findViewById(R.id.imageBox);
-
-        storage = FirebaseStorage.getInstance().getReference();
+        price = findViewById(R.id.txtAmount);
+        progressDialog = new ProgressDialog(AddRecipesNew.this);
+        storage = FirebaseStorage.getInstance().getReference().child("Recipes").child("Description");
         db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description");
 
         chooseFile.setOnClickListener(new View.OnClickListener(){
@@ -73,11 +76,14 @@ public class AddRecipesNew extends AppCompatActivity {
                 else if(TextUtils.isEmpty(recipeName.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Please enter the name of recipe",Toast.LENGTH_SHORT).show();
                 }
-                else if(TextUtils.isEmpty(category.getText().toString())){
-                    Toast.makeText(getApplicationContext(),"Please enter the category of recipe",Toast.LENGTH_SHORT).show();
+                else if(TextUtils.isEmpty(servings.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Please enter the serving amount of recipe",Toast.LENGTH_SHORT).show();
                 }
                 else if(TextUtils.isEmpty(method.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Method should be provided",Toast.LENGTH_SHORT).show();
+                }
+                else if(TextUtils.isEmpty(price.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Amount should be provided",Toast.LENGTH_SHORT).show();
                 }
                 else
                     uploadDetails();
@@ -89,7 +95,7 @@ public class AddRecipesNew extends AppCompatActivity {
         Intent myIntent = new Intent();
         myIntent.setType("image/*");
         myIntent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(myIntent,PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(myIntent,"Pick Image" ), PICK_IMAGE_REQUEST);
     }
 
     @Override
@@ -98,7 +104,12 @@ public class AddRecipesNew extends AppCompatActivity {
 
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData()!= null){
             imageUri = data.getData();
-            Picasso.get().load(imageUri).into(imageBox);
+            try{
+                Picasso.get().load(imageUri).fit().centerCrop().into(imageBox);
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+
         }
     }
 
@@ -111,18 +122,35 @@ public class AddRecipesNew extends AppCompatActivity {
 
     private void uploadDetails(){
         if(imageUri != null){
-            StorageReference stReference = storage.child(System.currentTimeMillis()+ "" + obtainFileExtension(imageUri));
+            progressDialog.setTitle("Uploading Details");
+            progressDialog.show();
 
-            uploadTask = stReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
+            StorageReference stReference = storage.child(System.currentTimeMillis()+ "." + obtainFileExtension(imageUri));
+
+            uploadTask = stReference.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Toast.makeText(AddRecipesNew.this,"successfully uploaded",Toast.LENGTH_SHORT).show();
                     try {
                         recipe = new Recipes();
+                        recipe.setRecipeName(recipeName.getText().toString().trim());
                         recipe.setMethod(method.getText().toString().trim());
-                        recipe.setImageUrl(storage.getDownloadUrl().toString());
-                        recipe.setCategory(category.getText().toString().trim());
-                        db.child(recipeName.getText().toString()).setValue(recipe);
+                        recipe.setServings(servings.getText().toString().trim());
+                        recipe.setPrice(price.getText().toString().trim());
+                        if (taskSnapshot.getMetadata() != null) {
+                            if (taskSnapshot.getMetadata().getReference() != null) {
+                                Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        String imageUrl = uri.toString();
+                                        recipe.setImageUrl(imageUrl);
+                                        db.child(recipeName.getText().toString()).setValue(recipe);
+                                    }
+                                });
+                            }
+                        }
                         Intent myIntent = new Intent(AddRecipesNew.this, AddIngredients.class);
                         myIntent.putExtra("RecipeName",recipeName.getText().toString());
                         startActivity(myIntent);
@@ -142,4 +170,5 @@ public class AddRecipesNew extends AppCompatActivity {
             Toast.makeText(AddRecipesNew.this,"Details are not completely filled",Toast.LENGTH_SHORT).show();
         }
     }
+
 }

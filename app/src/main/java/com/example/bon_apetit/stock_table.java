@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.Models.Stock;
 import com.example.adapters.DisplayStockAdapter;
@@ -25,14 +27,14 @@ import java.util.ArrayList;
 public class stock_table extends AppCompatActivity {
     RecyclerView recyclerView;
     Stock stock;
-    Button baddstock;
+    Button baddstock,bupdate;
+    EditText updatename;
 
     //firebase
     private DatabaseReference dbref;
 
     //variables
     private DisplayStockAdapter radapter;
-    private Context mcontext;
     ArrayList<Stock> istock = new ArrayList<>();
 
     @Override
@@ -59,14 +61,32 @@ public class stock_table extends AppCompatActivity {
         GetDataFromFirebase();
 
         baddstock = findViewById(R.id.btnaddstock);
+        bupdate = findViewById(R.id.btnupdate_stock);
+        updatename = findViewById(R.id.txtupdatename);
         radapter= new DisplayStockAdapter(getApplicationContext(),istock);
         recyclerView.setAdapter(radapter);
+
 
         baddstock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AddStock.class);
                 startActivity(intent);
+            }
+        });
+
+        bupdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(TextUtils.isEmpty(updatename.getText().toString())){
+                    updatename.setError("This feild cannot be empty");
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(),update_stock.class);
+                    intent.putExtra("stockName",updatename.getText().toString().trim());
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -82,6 +102,7 @@ public class stock_table extends AppCompatActivity {
                     stock = new Stock();
                     stock.setName(snapshot.child("name").getValue().toString());
                     stock.setQty(Integer.parseInt(snapshot.child("qty").getValue().toString()));
+                    stock.setUnit(snapshot.child("unit").getValue().toString());
                     stock.setUnitprice(Float.valueOf(snapshot.child("unitprice").getValue().toString()));
 
                     istock.add(stock);

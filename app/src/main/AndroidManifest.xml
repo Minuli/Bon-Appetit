@@ -60,13 +60,7 @@
         <activity android:name=".update_stock"></activity>
         <activity android:name=".ViewRecipeNew"></activity>
         
-       
-        <activity android:name=".updatePost">
-        </activity>
-      
-       
-        <activity android:name=".customerRegistration" android:parentActivityName=".UserLoginPage">
-        </activity>
+
         
         <activity android:name=".FrontEndHome">
             <intent-filter>
@@ -75,13 +69,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".customerRegistration"
-            android:parentActivityName=".UserLoginPage" />
-        <activity android:name=".orders_table" />
-        <activity android:name=".FrontEndHome" />
-        <activity android:name=".ViewRecipe1" />     
-       
+
         
 
 
@@ -93,8 +81,7 @@
         
        
         
-       
-        
+
        
     </application>
 

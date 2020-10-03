@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/heartbtn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    android:layout_margin="8dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="395dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/ic_launcher_round" />
+
+            <TextView
+                android:id="@+id/cusName"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="34dp"
+                android:layout_toRightOf="@id/image"
+                android:textColor="#000">
+
+            </TextView>
+
+
+            <ImageView
+                android:id="@+id/image_food"
+                android:layout_width="406dp"
+                android:layout_height="189dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="100dp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="39dp"
+                android:layout_height="46dp"
+
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="1000dp"
+                app:srcCompat="@drawable/heart" />
+
+
+            <TextView
+                android:id="@+id/showmore"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="270dp"
+                android:layout_marginBottom="9dp"
+                android:layout_weight="10"
+                android:text="@string/buttonviewrecipe"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/likeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="78dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="10"
+                android:text="@string/like1"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/likebtn"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="332dp"
+                android:background="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/recipeName"
+                android:layout_width="378dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="294dp"
+                android:text=""
+                android:textSize="20sp" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.cardview.widget.CardView>

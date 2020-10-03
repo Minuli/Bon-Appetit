@@ -2,20 +2,15 @@ package com.example.Models;
 
 public class CustomerPost {
 
-
+    private  String cusname;
+    private String profileimg;
     private String recipeName;
     private String imgUrl;
     private String  ingredients;
     private String  method;
 
 
-    public CustomerPost( String recipeName, String imgUrl, String ingredients, String method) {
-
-        this.recipeName = recipeName;
-        this.imgUrl = imgUrl;
-        this.ingredients = ingredients;
-        this.method = method;
-    }
+    public CustomerPost( ) { }
 
 
 
@@ -50,4 +45,21 @@ public class CustomerPost {
     public void setMethod(String method) {
         this.method = method;
     }
+
+    public String getCusname() {
+        return cusname;
+    }
+
+    public void setCusname(String cusname) {
+        this.cusname = cusname;
+    }
+
+    public String getProfileimg() {
+        return profileimg;
+    }
+
+    public void setProfileimg(String profileimg) {
+        this.profileimg = profileimg;
+    }
+
 }

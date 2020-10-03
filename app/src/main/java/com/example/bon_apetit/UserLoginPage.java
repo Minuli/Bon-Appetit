@@ -54,7 +54,7 @@ public class UserLoginPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(),"Login Successfull",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),payment_one.class);
+                                Intent intent = new Intent(getApplicationContext(),updatePost.class);
                                 startActivity(intent);
                             }
                             else{

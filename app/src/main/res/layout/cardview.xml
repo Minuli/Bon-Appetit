@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LeanerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    android:layout_weidht="match_parent ">
-    android:weightSum="2">
-    android:orientation="horizontal">
-
-<LeanerLayout>
-    android:layout_height="match_parent">
-    android:layout_widtht="wrap_content">
-    android:layout_weight="1">
-    android:orientation="vertical">
-
-    <TextView
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_widtht="match_parent"/>
+        android:weightSum="2"
+        android:orientation="horizontal">
+    <LinearLayout
 
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_widtht="match_parent"/>
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_widtht="match_parent"
-        android:text="@string/name"
-        android:textSize="15sp"
-         android:textStyle="bold"/>
-
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_widtht="match_parent"/>
-
-
-</LeanerLayout>
-    <LeanerLayout>
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
         android:layout_height="match_parent"
-            <ImageView
-                android:layout_height="match_parent"
-                android:layout_widtht="match_parent"
-                android:id="@+id/post"/>
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    </LeanerLayout>
-</LeanerLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:text="@string/namefeedcus"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/postCusName"
+            android:layout_width="match_parent"
+            android:layout_height="58dp" />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/postimage"
+
+            android:layout_width="344dp"
+            android:layout_height="171dp" />
+
+    </LinearLayout>
+    </LinearLayout>

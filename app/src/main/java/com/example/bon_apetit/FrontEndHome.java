@@ -19,7 +19,7 @@ public class FrontEndHome extends AppCompatActivity {
         ham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(FrontEndHome.this,Settings.class);
+                Intent intent =new Intent(FrontEndHome.this,nav.class);
                 startActivity(intent);
             }
         });

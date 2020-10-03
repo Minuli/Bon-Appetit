@@ -51,12 +51,12 @@ public class payment_one extends AppCompatActivity {
         proceed=findViewById(R.id.imagerec);
         cancel=findViewById(R.id.btncancel);
 
-
-
+        paymentmethod = findViewById(R.id.rgroup);
+     //   String uid = fauth.getCurrentUser().getUid();
 
         final FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
 
-        db= FirebaseDatabase.getInstance().getReference().child("Customer").child("123456789v");
+        db= FirebaseDatabase.getInstance().getReference().child("Customer").child(user.getUid());
 
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -65,8 +65,6 @@ public class payment_one extends AppCompatActivity {
                     Customer data = dataSnapshot.getValue(Customer.class);
                     address.setText(dataSnapshot.child("address").getValue().toString());
                     email.setText(dataSnapshot.child("email").getValue().toString());
-
-
                 }
                 else {
                     Toast.makeText(getApplicationContext(),"Nothing to display",Toast.LENGTH_SHORT).show();
@@ -98,14 +96,11 @@ public class payment_one extends AppCompatActivity {
 
 
         proceed.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 Payment payment = new Payment();
-                db= FirebaseDatabase.getInstance().getReference().child("Payment");
+                db= FirebaseDatabase.getInstance().getReference().child("Payment").child(String.valueOf(System.currentTimeMillis()));
                 try{
-
-
                     if(TextUtils.isEmpty(address.getText().toString())){
                         Toast.makeText(getApplicationContext(),"Please Enter Address",Toast.LENGTH_SHORT).show();
                     }
@@ -127,11 +122,21 @@ public class payment_one extends AppCompatActivity {
                         payment.setDate(date.getText().toString().trim());
                         payment.setTime(time.getText().toString().trim());
                         int radiobuttonid=paymentmethod.getCheckedRadioButtonId();
-                        cashorcard=(RadioButton) findViewById(radiobuttonid);
+                        cashorcard=findViewById(radiobuttonid);
                         payment.setMethod(cashorcard.getText().toString().trim());
 
-                        db.child(String.valueOf(maxid+1)).setValue(payment);
+                        db.setValue(payment);
+                        db.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                Toast.makeText(getApplicationContext(),"Payment recorded",Toast.LENGTH_SHORT).show();
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
                     }
 

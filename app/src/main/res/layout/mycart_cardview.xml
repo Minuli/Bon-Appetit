@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -12,71 +12,71 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="156dp" >
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/recimage"
-                android:layout_width="364dp"
-                android:layout_height="81dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/roundedtextbox"
-                android:text="TextView" />
+            android:layout_height="100dp">
+            <Button
+                android:id="@+id/btndelete"
+                android:layout_width="36dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/trashcan"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/reciepImage"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="45dp" />
-
-            <TextView
-                android:id="@+id/receipName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="42dp"
-                android:text="TextView"
-                android:textColor="#040303"
-                android:textStyle="bold"/>
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtprice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="210dp"
-                android:layout_marginTop="80dp"
                 android:text="TextView"
                 android:textColor="#4CAF50"
-                android:textStyle="bold"/>
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btndelete"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/receipName"
+                app:layout_constraintTop_toBottomOf="@+id/receipName" />
 
             <TextView
                 android:id="@+id/txtservings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="60dp"
                 android:text="TextView"
-                />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btndelete"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/txtprice"
+                app:layout_constraintTop_toBottomOf="@+id/txtprice"
+                app:layout_constraintVertical_bias="0.0" />
 
-            <Button
-                android:id="@+id/btndelete"
-                android:layout_width="36dp"
-                android:layout_height="37dp"
-                android:layout_marginLeft="340dp"
-                android:layout_marginTop="51dp"
-                android:background="@drawable/trashcan" />
+            <TextView
+                android:id="@+id/receipName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="TextView"
+                android:textColor="#040303"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btndelete"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/reciepImage"
+                app:layout_constraintTop_toTopOf="@+id/reciepImage" />
 
-            <Button
-                android:id="@+id/btnedit"
-                android:layout_width="68dp"
-                android:layout_height="22dp"
-                android:background="@drawable/loginbutton"
-                android:layout_marginLeft="270dp"
-                android:layout_marginTop="58dp"
-                android:text="@string/editbutton" />
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

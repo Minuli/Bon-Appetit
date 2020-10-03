@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class DisplayStockAdapter extends RecyclerView.Adapter<DisplayStockAdapter.ViewHolder> {
     private static final String TAG = "RecyclerView";
-    private ArrayList<Stock> istock = new ArrayList<>();
+    private ArrayList<Stock> istock;
     private Context mContext;
 
     public DisplayStockAdapter(Context mContext, ArrayList<Stock> data){

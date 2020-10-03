@@ -1,6 +1,5 @@
 package com.example.bon_apetit;
 
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,4 +48,5 @@ public class RecipeImageAdapter extends RecyclerView.Adapter<RecipeImageAdapter.
             imageView = itemView.findViewById(R.id.imageUpload);
         }
     }
+
 }

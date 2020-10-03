@@ -28,14 +28,12 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-
 
 public class AddRecipesNew extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    EditText recipeName,method,category;
+    EditText recipeName,method,servings,price;
     Button addIngredients, home, chooseFile;
     Recipes recipe;
     ImageView imageBox;
@@ -52,11 +50,12 @@ public class AddRecipesNew extends AppCompatActivity {
 
         recipeName = findViewById(R.id.recipe);
         method = findViewById(R.id.methodEnter);
-        category = findViewById(R.id.txtCategory);
+        servings = findViewById(R.id.txtServings);
         addIngredients = findViewById(R.id.addIngredients);
         home = findViewById(R.id.home3);
         chooseFile = findViewById(R.id.chooseFile);
         imageBox = findViewById(R.id.imageBox);
+        price = findViewById(R.id.txtAmount);
         progressDialog = new ProgressDialog(AddRecipesNew.this);
         storage = FirebaseStorage.getInstance().getReference().child("Recipes").child("Description");
         db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description");
@@ -77,11 +76,14 @@ public class AddRecipesNew extends AppCompatActivity {
                 else if(TextUtils.isEmpty(recipeName.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Please enter the name of recipe",Toast.LENGTH_SHORT).show();
                 }
-                else if(TextUtils.isEmpty(category.getText().toString())){
-                    Toast.makeText(getApplicationContext(),"Please enter the category of recipe",Toast.LENGTH_SHORT).show();
+                else if(TextUtils.isEmpty(servings.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Please enter the serving amount of recipe",Toast.LENGTH_SHORT).show();
                 }
                 else if(TextUtils.isEmpty(method.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Method should be provided",Toast.LENGTH_SHORT).show();
+                }
+                else if(TextUtils.isEmpty(price.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Amount should be provided",Toast.LENGTH_SHORT).show();
                 }
                 else
                     uploadDetails();
@@ -120,20 +122,22 @@ public class AddRecipesNew extends AppCompatActivity {
 
     private void uploadDetails(){
         if(imageUri != null){
-            progressDialog.setTitle("Uploading Image");
+            progressDialog.setTitle("Uploading Details");
             progressDialog.show();
 
             StorageReference stReference = storage.child(System.currentTimeMillis()+ "." + obtainFileExtension(imageUri));
 
             uploadTask = stReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
+                            @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Toast.makeText(AddRecipesNew.this,"successfully uploaded",Toast.LENGTH_SHORT).show();
                     try {
                         recipe = new Recipes();
                         recipe.setRecipeName(recipeName.getText().toString().trim());
                         recipe.setMethod(method.getText().toString().trim());
+                        recipe.setServings(servings.getText().toString().trim());
+                        recipe.setPrice(price.getText().toString().trim());
                         if (taskSnapshot.getMetadata() != null) {
                             if (taskSnapshot.getMetadata().getReference() != null) {
                                 Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
@@ -142,7 +146,6 @@ public class AddRecipesNew extends AppCompatActivity {
                                     public void onSuccess(Uri uri) {
                                         String imageUrl = uri.toString();
                                         recipe.setImageUrl(imageUrl);
-                                        recipe.setCategory(category.getText().toString().trim());
                                         db.child(recipeName.getText().toString()).setValue(recipe);
                                     }
                                 });

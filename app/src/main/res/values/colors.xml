@@ -13,4 +13,5 @@
     <color name="horizontalDividerColor">#957000</color>
     <color name = "dbrown">#957000</color>
     <color name = "lightBrown">#D8AF32</color>
+    <color name = "lightred">#F17878</color>
 </resources>

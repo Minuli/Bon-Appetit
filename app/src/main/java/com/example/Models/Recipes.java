@@ -1,19 +1,18 @@
 package com.example.Models;
 
-import android.net.Uri;
-
 public class Recipes {
 
     private String recipeName;
     private String method;
     private String imageUrl;
-    private String category;
+    private String servings;
+    private String price;
 
     public Recipes() {
 
     }
 
-    public Recipes(String method,String imageUrl, String recipeName, String category) {
+    public Recipes(String method,String imageUrl, String recipeName, String servings, String unit, String price) {
 
         if(recipeName.trim().equals("")){
             recipeName = "No name Provided";
@@ -21,13 +20,17 @@ public class Recipes {
         if(method.trim().equals("")){
             method = "No method provided";
         }
-        if(category.trim().equals("")){
-            category = "No method provided";
+        if(servings.trim().equals("")){
+            servings = "No method provided";
+        }
+        if(price.trim().equals("")){
+            price = "Price not provided";
         }
         this.recipeName = recipeName;
         this.method = method;
         this.imageUrl = imageUrl;
-        this.category = category;
+        this.servings = servings;
+        this.price = price;
     }
 
     public void setMethod(String method) {
@@ -54,12 +57,20 @@ public class Recipes {
         this.recipeName = recipeName;
     }
 
-    public String getCategory() {
-        return category;
+    public String getServings() {
+        return servings;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setServings(String servings) {
+        this.servings = servings;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
 }

@@ -24,6 +24,7 @@ tools:showIn="@layout/activity_display_recipe_scroll">
 
     <EditText
         android:id="@+id/recipe"
+        android:enabled = "false"
         android:layout_width="203dp"
         android:layout_height="31dp"
         android:layout_alignBaseline="@id/recipeName"
@@ -32,10 +33,10 @@ tools:showIn="@layout/activity_display_recipe_scroll">
         android:layout_marginStart="170dp"/>
 
     <TextView
-        android:id="@+id/category"
+        android:id="@+id/servings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/category"
+        android:text = "@string/servings"
         android:textColor="#000000"
         android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="18sp"
@@ -43,12 +44,32 @@ tools:showIn="@layout/activity_display_recipe_scroll">
         android:layout_marginTop="90dp"/>
 
     <EditText
-        android:id="@+id/txtCategory"
+        android:id="@+id/txtServings"
         android:layout_width="201dp"
         android:layout_height="33dp"
         android:ems="10"
         android:background="@drawable/rectangletxtbox"
-        android:layout_alignBaseline="@id/category"
+        android:layout_alignBaseline="@id/servings"
+        android:layout_marginStart="170dp"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "@string/price3"
+        android:textColor="#000000"
+        android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"/>
+
+    <EditText
+        android:id="@+id/txtPrice"
+        android:layout_width="201dp"
+        android:layout_height="33dp"
+        android:ems="10"
+        android:background="@drawable/rectangletxtbox"
+        android:layout_alignBaseline="@id/price"
         android:layout_marginStart="170dp"/>
 
     <TextView
@@ -59,24 +80,26 @@ tools:showIn="@layout/activity_display_recipe_scroll">
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="150dp"/>
+        android:layout_marginTop="205dp"/>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/uploadImage"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_alignBaseline="@id/recipeImage"
         android:layout_marginStart="170dp"
-        android:text="@string/updateFile"
-        android:layout_alignBaseline="@id/recipeImage"/>
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonsuccess"
+        android:text="@string/upload_image" />
+
 
     <ImageView
         android:id="@+id/imageBox"
         android:layout_width="312dp"
-        android:layout_height="250dp"
+        android:layout_height="193dp"
         android:layout_gravity="center"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="260dp"
         android:background="@drawable/rectangletxtbox"
         android:ems="10"
         android:inputType="textPersonName"
@@ -101,6 +124,40 @@ tools:showIn="@layout/activity_display_recipe_scroll">
         android:layout_marginTop="540dp"
         android:textColor="#000000"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/getIngredient"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/methodText3"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-1dp"
+        android:background="@drawable/buttonsuccess"
+        android:text="@string/view_ingredients"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/updateRecipe"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/getIngredient"
+        android:layout_marginStart="165dp"
+        android:background="@drawable/buttonsuccess"
+        android:text="@string/update_recipe"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/deleteRecipe"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/getIngredient"
+        android:layout_marginStart="300dp"
+        android:background="@drawable/buttondelete"
+        android:text="@string/delete_recipe"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
 
 </RelativeLayout>

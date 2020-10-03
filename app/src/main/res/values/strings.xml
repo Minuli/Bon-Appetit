@@ -207,5 +207,25 @@
     <string name="title_activity_view_full_recipe_new">ScrollingActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_display_recipe_scroll">ScrollingActivity</string>
-
+    <string name="servings">Servings</string>
+    <string name="amount5">Amount</string>
+    <string name="price3">Price</string>
+    <string name="update">Update</string>
+    <string name="ingredient1">ingredient</string>
+    <string name="view_ingredients">View Ingredients</string>
+    <string name="delete_ingredients">Delete Ingredients</string>
+    <string name="update_recipe">Update Recipe</string>
+    <string name="delete_recipe">Delete Recipe</string>
+    <string name="upload_image">Upload Image</string>
+    <string-array name="unit">
+        <item>g</item>
+        <item>kg</item>
+        <item>ml</item>
+        <item>litres</item>
+        <item>cups</item>
+        <item>cup</item>
+        <item>teaspoon</item>
+        <item>tablespoon</item>
+        <item> </item>
+    </string-array>
 </resources>

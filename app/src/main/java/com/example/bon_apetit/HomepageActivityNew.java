@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Models.Recipes;
@@ -28,6 +32,8 @@ public class HomepageActivityNew extends AppCompatActivity {
     RecipeImageAdapter recipeImageAdapter;
     DatabaseReference db;
     List<Recipes> recipe;
+    ImageView image;
+    TextView recipeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,8 @@ public class HomepageActivityNew extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        image = findViewById(R.id.imageUpload);
+        recipeName = findViewById(R.id.recipeName);
 
         recipe = new ArrayList<>();
         db = FirebaseDatabase.getInstance().getReference("Recipes/Description");

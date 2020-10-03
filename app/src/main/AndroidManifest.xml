@@ -13,20 +13,23 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayRecipeScrollFrontEnd"></activity>
+        <activity android:name=".DisplayIngredientsBackend"></activity>
+        <activity android:name=".DisplayRecipeScrollFrontEndNew" />
         <activity android:name=".UploadButton">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
-        <activity android:name=".HomepageActivityNew"></activity>
+        <activity android:name=".HomepageActivityNew">
+
+        </activity>
         <activity
             android:name=".DisplayRecipeScroll"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ViewRecipeNew">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".AddRecipesNew">
 
@@ -39,7 +42,6 @@
             android:name=".customerRegistration"
             android:parentActivityName=".UserLoginPage" />
         <activity android:name=".orders_table" />
-        <activity android:name=".FrontEndHome" />
         <activity android:name=".AddRecipies" />
         <activity android:name=".UserLoginPage" />
         <activity android:name=".EditProfile" />

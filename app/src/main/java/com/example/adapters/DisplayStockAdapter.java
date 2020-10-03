@@ -45,7 +45,7 @@ public class DisplayStockAdapter extends RecyclerView.Adapter<DisplayStockAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
         Log.d(TAG,"On bind view holder");
         holder.sid.setText(istock.get(position).getName());
-        holder.sname.setText(String.valueOf(istock.get(position).getQty()));
+        holder.sname.setText(String.valueOf(istock.get(position).getQty()+""+istock.get(position).getUnit()));
         holder.sup.setText(String.valueOf(istock.get(position).getUnitprice()));
 
     }

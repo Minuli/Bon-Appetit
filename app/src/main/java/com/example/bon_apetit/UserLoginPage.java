@@ -3,12 +3,14 @@ package com.example.bon_apetit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +24,7 @@ public class UserLoginPage extends AppCompatActivity {
     EditText txtemail,txtPwd;
     Button login,singup;
     FirebaseAuth firebaseAuth;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,8 @@ public class UserLoginPage extends AppCompatActivity {
 
         login = findViewById(R.id.btnlogin);
         singup = findViewById(R.id.btnreg);
+
+        progressDialog = new ProgressDialog(UserLoginPage.this);
 
         firebaseAuth=FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
@@ -47,17 +52,22 @@ public class UserLoginPage extends AppCompatActivity {
                     txtPwd.setError("password shuold contain more than 6 characters");
                 }
                 else{
+                    progressDialog.setTitle("Logging in");
+                    progressDialog.show();
                     String email = txtemail.getText().toString().trim();
                     String pwd = txtPwd.getText().toString().trim();
                     firebaseAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                progressDialog.hide();
                                 Toast.makeText(getApplicationContext(),"Login Successfull",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),FrontEndHome.class);
+                                Intent intent = new Intent(getApplicationContext(),EditProfile.class);
+                                finish();
                                 startActivity(intent);
                             }
                             else{
+                                progressDialog.hide();
                                 Toast.makeText(getApplicationContext(),"Incorrect username or password",Toast.LENGTH_SHORT).show();
                                 txtemail.setText("");
                                 txtPwd.setText("");

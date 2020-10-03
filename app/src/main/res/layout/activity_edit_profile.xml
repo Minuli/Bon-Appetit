@@ -22,14 +22,14 @@
         android:id="@+id/hamburger2"
         android:layout_width="32dp"
         android:layout_height="36dp"
-        app:tint="#121010"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.015"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+        app:tint="#121010" />
 
     <TextView
         android:id="@+id/texteditprofile"
@@ -58,37 +58,34 @@
         app:srcCompat="@drawable/cart" />
 
     <ImageView
-        android:id="@+id/profilepic1"
-        android:layout_width="138dp"
+        android:id="@+id/ivpropic"
+        android:layout_width="157dp"
         android:layout_height="120dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16"
-        app:srcCompat="@drawable/downloadwe" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageadd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:layout_width="44dp"
+        android:layout_height="42dp"
+        android:background="@android:color/holo_orange_light"
         android:tint="#0B0A0A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintHorizontal_bias="0.746"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.278"
+        app:layout_constraintVertical_bias="0.301"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <Button
-        android:id="@+id/btnEdit2"
+        android:id="@+id/btneditacc"
         android:layout_width="336dp"
         android:layout_height="47dp"
-        android:background="#9FFF9800"
+        android:background="@drawable/normalbutton"
         android:text="@string/editbtn"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,14 +96,13 @@
         app:layout_constraintVertical_bias="0.85" />
 
     <EditText
-        android:id="@+id/textbox1"
+        android:id="@+id/txtusername"
         android:layout_width="326dp"
         android:layout_height="57dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rectangletxtbox"
-        android:hint="@string/name23"
-        android:text="@string/name23"
+        android:paddingLeft="30px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
@@ -116,13 +112,14 @@
         app:srcCompat="@drawable/textboxes" />
 
     <EditText
-        android:id="@+id/textbox2"
+        android:id="@+id/txtemail"
         android:layout_width="325dp"
         android:layout_height="49dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rectangletxtbox"
-        android:hint="@string/email"
+        android:enabled="false"
+        android:paddingLeft="30px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,13 +127,13 @@
         app:srcCompat="@drawable/textboxes" />
 
     <EditText
-        android:id="@+id/textbox3"
+        android:id="@+id/txtcontactnumber"
         android:layout_width="325dp"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rectangletxtbox"
-        android:hint="@string/phn"
+        android:paddingLeft="30px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
@@ -146,13 +143,13 @@
         app:srcCompat="@drawable/textboxes" />
 
     <EditText
-        android:id="@+id/textbox4"
+        android:id="@+id/txtaddress"
         android:layout_width="331dp"
         android:layout_height="40dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rectangletxtbox"
-        android:hint="@string/address"
+        android:paddingLeft="30px"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.562"
@@ -162,11 +159,12 @@
         app:srcCompat="@drawable/textboxes" />
 
     <Button
-        android:id="@+id/btncancel"
+        android:id="@+id/btnresetpwd"
         android:layout_width="335dp"
         android:layout_height="51dp"
-        android:background="#F44336"
+        android:background="@drawable/cancel_button_background"
         android:text="@string/btncancel2"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

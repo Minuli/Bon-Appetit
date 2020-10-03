@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayIngredientsBackend">
+
+    <ImageView
+        android:id="@+id/arrow1"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        app:layout_constraintVertical_bias="0.022"
+        android:layout_marginTop="40dp"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        app:tint="#000000" />
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="61dp"
+        android:layout_height="57dp"
+        android:layout_marginLeft="350dp"
+        android:background="#FFFFFF"
+        android:layout_marginTop="25dp"
+        app:srcCompat="@drawable/home" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="409dp"
+        android:layout_height="3dp"
+        android:background="#957000"
+        android:layout_marginTop="90dp" />
+
+    <TextView
+        android:id="@+id/viewRecipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/bonappetit"
+        android:textColor="#D8AF32"
+        android:textSize="28sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="641dp"
+        android:layout_marginTop="100dp"></androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

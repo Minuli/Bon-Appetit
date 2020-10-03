@@ -252,6 +252,7 @@
         app:layout_constraintVertical_bias="0.707" />
 
     <RadioGroup
+        android:id="@+id/rgroup"
         android:layout_width="229dp"
         android:layout_height="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -266,6 +267,7 @@
             android:layout_width="213dp"
             android:layout_height="33dp"
             android:text="@string/Cash"
+            android:checked="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.863"

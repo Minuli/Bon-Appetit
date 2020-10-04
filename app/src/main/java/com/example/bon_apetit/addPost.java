@@ -19,6 +19,7 @@ import com.example.Models.Customer;
 import com.example.Models.CustomerPost;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +31,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 public class addPost extends AppCompatActivity {
 
@@ -39,7 +41,6 @@ public class addPost extends AppCompatActivity {
      Button choosephoto,submit;
      CustomerPost cuspost;
      ImageView image;
-
      Uri photoUri;
     String postid ;
     DatabaseReference dbRef;
@@ -58,14 +59,17 @@ public class addPost extends AppCompatActivity {
         recipieName = findViewById(R.id.recipename);
         method = findViewById(R.id.method);
         ingredients = findViewById(R.id.ingredie);
-
         choosephoto = findViewById(R.id.choosebutton);
         submit = findViewById(R.id.editbutton56);
         image = findViewById(R.id.imagerec);
 
-        stoRef = FirebaseStorage.getInstance().getReference();
+
         fauth = FirebaseAuth.getInstance();
+        stoRef = FirebaseStorage.getInstance().getReference().child("CustomerPost").child(fauth.getCurrentUser().getUid());
         dbRef = FirebaseDatabase.getInstance().getReference().child("CustomerPost").child(fauth.getCurrentUser().getUid());
+
+
+
 
         postid = fauth.getCurrentUser().getUid();
          dbRef.addValueEventListener(new ValueEventListener() {
@@ -109,7 +113,7 @@ public class addPost extends AppCompatActivity {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent,IMAGE_REQUEST);
+            startActivityForResult(Intent.createChooser(intent,"pick Image"), IMAGE_REQUEST);
         }
 
 
@@ -117,11 +121,15 @@ public class addPost extends AppCompatActivity {
         protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
 
-            if(requestCode == IMAGE_REQUEST && resultCode ==RESULT_OK && data != null && data.getData() != null){
-                photoUri =data.getData();
+            if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+                photoUri = data.getData();
+                try {
+                    Picasso.get().load(photoUri).fit().centerCrop().into(image);
+                } catch (Exception ex) {
 
-                image.setImageURI(photoUri);
+                    ex.printStackTrace();
 
+                }
             }
         }
         //get extention of image
@@ -139,13 +147,26 @@ public class addPost extends AppCompatActivity {
                             @Override
 
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                    Toast.makeText(addPost.this,"Image is successfully uploaded",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(addPost.this,"Your post is successfully uploaded",Toast.LENGTH_SHORT).show();
                                     try{
-                                        cuspost = new CustomerPost(recipieName.getText().toString().trim(),
-                                                                    stoRef.getDownloadUrl().toString(),
-                                                                    ingredients.getText().toString().trim(),
-                                                                     method.getText().toString().trim()) ;
-                                        dbRef.child(recipieName.getText().toString()).setValue(cuspost);
+                                        cuspost = new CustomerPost();
+                                        cuspost.setRecipeName(recipieName.getText().toString().trim());
+                                        cuspost.setMethod( method.getText().toString().trim());
+                                        cuspost.setIngredients(ingredients.getText().toString().trim());
+                                        if(taskSnapshot.getMetadata() != null){
+                                            if(taskSnapshot.getMetadata().getReference() != null){
+                                                Task<Uri> result =taskSnapshot.getStorage().getDownloadUrl();
+                                                result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        String photoUri = uri.toString();
+                                                        cuspost.setImgUrl(photoUri);
+                                                        dbRef.child(recipieName.getText().toString()+ "" + System.currentTimeMillis()).setValue(cuspost);
+                                                    }
+                                                });
+                                            }
+                                        }
+
                                     }catch(Exception e){
                                         System.out.println(e.getMessage());
                                     }

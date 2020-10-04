@@ -10,15 +10,12 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
 
 public class UserLoginPage extends AppCompatActivity {
     EditText txtemail,txtPwd;
@@ -34,7 +31,7 @@ public class UserLoginPage extends AppCompatActivity {
         txtPwd = findViewById(R.id.txtpwd);
 
         login = findViewById(R.id.btnlogin);
-        singup = findViewById(R.id.btnreg);
+        singup = findViewById(R.id.btnloadprofile);
 
         progressDialog = new ProgressDialog(UserLoginPage.this);
 
@@ -62,7 +59,7 @@ public class UserLoginPage extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 progressDialog.hide();
                                 Toast.makeText(getApplicationContext(),"Login Successfull",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),ViewRecipeNew.class);
+                                Intent intent = new Intent(getApplicationContext(),HomepageActivityNew.class);
                                 finish();
                                 startActivity(intent);
                             }

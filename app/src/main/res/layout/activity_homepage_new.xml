@@ -5,16 +5,21 @@
     android:id="@+id/home_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomepageActivityNew">
+    tools:context=".HomepageActivityNew"><![CDATA[
 
-    <ImageView
+    Button
         android:id="@+id/arrow1"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
+        android:layout_width="70dp"
+        android:layout_height="39dp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/plus"
         app:layout_constraintVertical_bias="0.022"
         app:srcCompat="?attr/actionModeCloseDrawable"
         app:tint="#000000" />
+
+    ]]>
+
+
 
     <ImageView
         android:id="@+id/home"
@@ -47,5 +52,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="100dp"></androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/ham_setting"
+        android:layout_width="63dp"
+        android:layout_height="77dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/ic_menu_sort_by_size" />
 
 </RelativeLayout>

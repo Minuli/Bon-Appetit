@@ -37,33 +37,27 @@
             </intent-filter>
         </activity>
         <activity android:name=".EditProfile" />
+
         <activity android:name=".UpdateRecipe" />
         <activity android:name=".ViewRecipeBackend" />
         <activity android:name=".AddStock" />
-        <activity android:name=".mycart" />
-
         <activity android:name=".orders_table" />
-        
-
-        
-      
-
-        
         <activity android:name=".custregaddprofilepic"></activity>
         <activity android:name=".addPost" />
         <activity android:name=".customerRegistration" android:parentActivityName=".UserLoginPage">
         </activity>
-
-        
-        
-
+        <activity android:name=".UpdateRecipe" />
+        <activity android:name=".ViewRecipeBackend" />
+        <activity android:name=".AddStock"></activity>
+        <activity android:name=".mycart" />
         <activity android:name=".Feed" />
         <activity android:name=".employee_login" />
         <activity android:name=".employee_home_page" />
         <activity android:name=".customerProfile" />
         <activity android:name=".ContactUsPage" />
         <activity android:name=".history" />
-        <activity android:name=".stock_table" />
+        <activity android:name=".stock_table">
+      </activity>
         <activity android:name=".Settings" />
         <activity android:name=".FrontEndRecipe" />
         <activity android:name=".payment_one" />
@@ -71,22 +65,11 @@
         <activity android:name=".update_stock" />
         <activity android:name=".updatePost" />
         <activity android:name=".FrontEndHome" />
-
-       
-       
         <activity android:name=".HomepageActivityNew"></activity>
         <activity android:name=".DisplayIngredientsBackend"></activity>
         <activity android:name=".DisplayRecipeScrollFrontEndNew" />
-        <activity android:name=".UploadButton">
-
-        <activity android:name=".updatePost"></activity>
-        <activity android:name=".DisplayIngredientsBackend" />
-        <activity android:name=".DisplayRecipeScrollFrontEndNew" />
         <activity android:name=".UploadButton"></activity>
 
-        <activity android:name=".HomepageActivityNew">
-
-        </activity>
         <activity
             android:name=".DisplayRecipeScroll"
             android:label=""
@@ -95,14 +78,6 @@
         <activity android:name=".AddRecipesNew">
         </activity>
 
-        <activity android:name=".AddRecipesNew">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-   
-        </activity>
 
 
     </application>

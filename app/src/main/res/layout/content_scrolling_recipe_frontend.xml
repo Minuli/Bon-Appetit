@@ -102,12 +102,21 @@
             android:layout_width="136dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/methodText3"
-            android:layout_marginStart="130dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/buttonsuccess"
             android:text="@string/view_ingredients"
             android:textColor="@color/black"
             android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/addTocart"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="547dp"
+            android:background="@drawable/buttonsuccess"
+            android:text="Add To Cart" />
 
     </RelativeLayout>
 

@@ -59,7 +59,6 @@ public class HomepageActivityNew extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(HomepageActivityNew.this, databaseError.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -62,6 +62,8 @@ public class AddStock extends AppCompatActivity {
             public void onClick(View view) {
                 stock = new Stock();
                 db = FirebaseDatabase.getInstance().getReference().child("stock");
+                int qty = Integer.parseInt(iqty.getText().toString());
+                int rol= Integer.parseInt(irol.getText().toString()) ;
                 try{
                     if(TextUtils.isEmpty(iname.getText().toString())){
                         iname.setError("Please Enter Ingredient name");
@@ -80,6 +82,9 @@ public class AddStock extends AppCompatActivity {
                     }
                     else if(Integer.valueOf(irol.getText().toString().trim())<=0){
                         iqty.setError("Item Quantity should be greater than zero.");
+                    }
+                    else if( rol >= qty ){
+                        irol.setError("ROL Should be lower than quantity");
                     }
                     else{
                         stock.setName(iname.getText().toString().trim());

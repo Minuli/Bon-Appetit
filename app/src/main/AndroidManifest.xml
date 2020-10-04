@@ -26,11 +26,19 @@
         <activity android:name=".AddRecipies">
         </activity>
         <activity android:name=".UserLoginPage" />
+
         <activity android:name=".EditProfile" />
+        <activity android:name=".custregaddprofilepic"></activity>
         <activity android:name=".addPost" />
-        <activity
-            android:name=".customerRegistration"
-            android:parentActivityName=".UserLoginPage"></activity>
+        <activity android:name=".customerRegistration" android:parentActivityName=".UserLoginPage">
+        </activity>
+        <activity android:name=".UserLoginPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".UpdateRecipe" />
         <activity android:name=".ViewRecipeBackend" />
         <activity android:name=".AddStock"></activity>
@@ -64,6 +72,8 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+   
         </activity>
     </application>
 

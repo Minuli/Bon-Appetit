@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.Models.Ingredients;
 import com.example.adapters.IngredientAdapter;
+import com.example.adapters.IngredientFrontEndAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,21 +25,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayIngredientsBackend extends AppCompatActivity {
+public class DisplayIngredientsFrontEnd extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    IngredientAdapter ingredientAdapter;
+    IngredientFrontEndAdapter ingredientAdapter;
     DatabaseReference db;
     List<Ingredients> ingredient;
     TextView ingredients, amount;
     Spinner unit;
     String recipe;
-    Button delete;
+    Button home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_ingredients_backend);
+        setContentView(R.layout.activity_display_ingredients_front_end);
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -45,9 +47,9 @@ public class DisplayIngredientsBackend extends AppCompatActivity {
         ingredients = findViewById(R.id.ingredient);
         amount = findViewById(R.id.amount);
         unit = findViewById(R.id.unit);
-        delete = findViewById(R.id.delete);
         Intent myIntent = getIntent();
         recipe = myIntent.getStringExtra("EnteredRecipeName");
+        home = findViewById(R.id.home5);
 
         ingredient = new ArrayList<>();
         db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Ingredients").child(recipe);
@@ -57,17 +59,27 @@ public class DisplayIngredientsBackend extends AppCompatActivity {
                 System.out.println(dataSnapshot);
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     System.out.println(snapshot);
+
                     Ingredients ingredients1 =  snapshot.getValue(Ingredients.class);
                     ingredient.add(ingredients1);
                 }
-                ingredientAdapter = new IngredientAdapter(DisplayIngredientsBackend.this,ingredient);
+                ingredientAdapter = new IngredientFrontEndAdapter(DisplayIngredientsFrontEnd.this,ingredient);
                 recyclerView.setAdapter(ingredientAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(DisplayIngredientsBackend.this, databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(DisplayIngredientsFrontEnd.this, databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(DisplayIngredientsFrontEnd.this, HomepageActivityNew.class);
+                startActivity(myIntent);
             }
         });
     }
+
 }

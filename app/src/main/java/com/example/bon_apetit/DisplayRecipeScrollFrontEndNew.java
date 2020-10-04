@@ -7,8 +7,11 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -28,9 +31,11 @@ public class DisplayRecipeScrollFrontEndNew extends AppCompatActivity {
     String recipeName;
     DatabaseReference db;
     StorageReference storage;
-    EditText servings, recipe, method, price;
+    TextView servings, price;
+    EditText method;
     ImageView imageBox;
-
+    TextView recipe;
+    Button getIngredients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +52,10 @@ public class DisplayRecipeScrollFrontEndNew extends AppCompatActivity {
         method = findViewById(R.id.methodText3);
         price = findViewById(R.id.txtPrice);
         imageBox = findViewById(R.id.imageBox);
+        getIngredients = findViewById(R.id.getIngredient);
 
         Intent myIntent = getIntent();
-        recipeName = myIntent.getStringExtra("EnteredRecipeName");
+        recipeName = myIntent.getStringExtra("EnteredRecipe");
         System.out.println("getname :"+recipeName);
 
         db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description").child(recipeName);
@@ -70,6 +76,14 @@ public class DisplayRecipeScrollFrontEndNew extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(getApplicationContext(),"NothingToDisplay",Toast.LENGTH_SHORT).show();
+            }
+        });
+        getIngredients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(DisplayRecipeScrollFrontEndNew.this, DisplayIngredientsFrontEnd.class);
+                myIntent.putExtra("EnteredRecipeName",recipeName);
+                startActivity(myIntent);
             }
         });
     }

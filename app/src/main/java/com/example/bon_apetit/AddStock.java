@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +28,7 @@ import java.net.StandardProtocolFamily;
 public class AddStock extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton radioButton;
-
+    Spinner sunit;
     EditText iname,iqty,irol,iup;
     Button btnAddStock,btnReset;
     DatabaseReference db;
@@ -37,10 +39,14 @@ public class AddStock extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_stock);
 
-        radioGroup = findViewById(R.id.radio_group);
 
 
         //linking Edit texts and buttons
+        sunit =findViewById(R.id.asunit);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(AddStock.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.stocks_units)     );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sunit.setAdapter(adapter);
+
         iname = findViewById(R.id.txtiname);
         iqty = findViewById(R.id.txtiqty);
         irol = findViewById(R.id.txtirol);
@@ -56,6 +62,8 @@ public class AddStock extends AppCompatActivity {
             public void onClick(View view) {
                 stock = new Stock();
                 db = FirebaseDatabase.getInstance().getReference().child("stock");
+                int qty = Integer.parseInt(iqty.getText().toString());
+                int rol= Integer.parseInt(irol.getText().toString()) ;
                 try{
                     if(TextUtils.isEmpty(iname.getText().toString())){
                         iname.setError("Please Enter Ingredient name");
@@ -75,14 +83,15 @@ public class AddStock extends AppCompatActivity {
                     else if(Integer.valueOf(irol.getText().toString().trim())<=0){
                         iqty.setError("Item Quantity should be greater than zero.");
                     }
+                    else if( rol >= qty ){
+                        irol.setError("ROL Should be lower than quantity");
+                    }
                     else{
                         stock.setName(iname.getText().toString().trim());
                         stock.setQty(Integer.valueOf(iqty.getText().toString().trim()));
                         stock.setRol(Integer.valueOf(irol.getText().toString().trim()));
                         stock.setUnitprice(Float.valueOf(iup.getText().toString().trim()));
-                        int radioId = radioGroup.getCheckedRadioButtonId();
-                        radioButton = findViewById(radioId);
-                        stock.setUnit(radioButton.getText().toString());
+                        stock.setUnit(sunit.getSelectedItem().toString().trim());
                         db.child(stock.getName()).setValue(stock);
                         db.addValueEventListener(new ValueEventListener() {
                             @Override

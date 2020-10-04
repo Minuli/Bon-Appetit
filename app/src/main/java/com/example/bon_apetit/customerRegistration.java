@@ -51,22 +51,22 @@ public class customerRegistration extends AppCompatActivity {
                 fauth = FirebaseAuth.getInstance();
                 try{
                     if(TextUtils.isEmpty(cnic.getText().toString())){
-                        Toast.makeText(getApplicationContext(),"Please Enter Nic",Toast.LENGTH_SHORT).show();
+                        cnic.setError("Nic Feild cannot be empty");
                     }
                     else if(TextUtils.isEmpty(cname.getText().toString())){
-                        Toast.makeText(getApplicationContext(),"Please Enter name",Toast.LENGTH_SHORT).show();
+                        cname.setError("Name Feild cannot be empty");
                     }
                     else if(TextUtils.isEmpty(cemail.getText().toString())){
-                        Toast.makeText(getApplicationContext(),"Please Enter email",Toast.LENGTH_SHORT).show();
+                        cemail.setError("Email feild cannot be emopty");
                     }
                     else if(TextUtils.isEmpty(cnumber.getText().toString())){
-                        Toast.makeText(getApplicationContext(),"Please Enter Contact number",Toast.LENGTH_SHORT).show();
+                        cnumber.setError("Contact Feild canoot be empty.");
                     }
                     else if(TextUtils.isEmpty(caddress.getText().toString())){
-                        Toast.makeText(getApplicationContext(),"Please Enter address",Toast.LENGTH_SHORT).show();
+                        caddress.setError("Address feild cannot be empty");
                     }
                     else if(TextUtils.isEmpty(cpassword.getText().toString())){
-                        Toast.makeText(getApplicationContext(),"Please Enter Password",Toast.LENGTH_SHORT).show();
+                        cpassword.setError("Password feild cannot be empty");
                     }
                     else if(cpassword.getText().toString().trim().length() < 6){
                         Toast.makeText(getApplicationContext(),"Password should have more than 6 characters",Toast.LENGTH_SHORT).show();

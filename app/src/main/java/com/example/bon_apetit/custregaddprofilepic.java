@@ -64,13 +64,17 @@ public class custregaddprofilepic extends AppCompatActivity {
         db = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid).child("profilePic");
 
 
-
-
         btnadd.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
                 openFileChoosed();
+            }
+        });
+        btnupload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadpic();
             }
         });
     }
@@ -111,7 +115,7 @@ public class custregaddprofilepic extends AppCompatActivity {
 
                             }
                         }
-                        Intent intent = new Intent(getApplicationContext(),UserLoginPage.class);
+                        Intent intent = new Intent(getApplicationContext(),HomepageActivityNew.class);
                         startActivity(intent);
                         finish();
                     }catch (Exception e){

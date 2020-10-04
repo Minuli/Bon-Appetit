@@ -92,7 +92,7 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         System.out.println("getname :"+recipeName);
 
         db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description").child(recipeName);
-        db1 = FirebaseDatabase.getInstance().getReference("Recipes").child("Ingredients").child(recipeName);
+        db1 = FirebaseDatabase.getInstance().getReference("Recipes").child("Ingredients");
         storage2 = FirebaseStorage.getInstance().getReference().child("Recipes").child("Description");
         db2 = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description");
 
@@ -132,16 +132,43 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                db2.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild(recipeName)){
+                            db2 = FirebaseDatabase.getInstance().getReference("Recipes").child("Description").child(recipeName);
+                            db2.removeValue();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                db1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild(recipeName)){
+                            db1 = FirebaseDatabase.getInstance().getReference("Recipes").child("Ingredients").child(recipeName);
+                            db1.removeValue();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 storage1 = FirebaseStorage.getInstance().getReferenceFromUrl(img);
                 storage1.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void v) {
-                        db.removeValue();
-                        db1.removeValue();
                         Toast.makeText(DisplayRecipeScroll.this,"Delete Successful",Toast.LENGTH_LONG).show();
-                        Intent intent1 = new Intent(getApplicationContext(), AddIngredients.class);
+                        Intent intent1 = new Intent(getApplicationContext(),  ViewRecipeNew.class);
                         finish();
                         startActivity(intent1);
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -277,9 +304,20 @@ public class DisplayRecipeScroll extends AppCompatActivity {
     }
 
     private void updateDetails(){
+
+            recipe1 = new Recipes();
+            recipe1.setRecipeName(recipe.getText().toString().trim());
+            recipe1.setMethod(method.getText().toString().trim());
+            recipe1.setServings(servings.getText().toString().trim());
+            recipe1.setPrice(price.getText().toString().trim());
+            db.child("recipeName").setValue(recipe1.getRecipeName());
+            db.child("method").setValue(recipe1.getMethod());
+            db.child("servings").setValue(recipe1.getServings());
+            db.child("price").setValue(recipe1.getPrice());
+
         if(imageUri != null){
-            progressDialog.setTitle("Uploading Details");
-            progressDialog.show();
+            storage1 = FirebaseStorage.getInstance().getReferenceFromUrl(img);
+            storage1.delete();
 
             StorageReference stReference = storage2.child(System.currentTimeMillis()+ "." + obtainFileExtension(imageUri));
 
@@ -287,13 +325,7 @@ public class DisplayRecipeScroll extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(DisplayRecipeScroll.this,"successfully uploaded",Toast.LENGTH_SHORT).show();
                             try {
-                                recipe1 = new Recipes();
-                                recipe1.setRecipeName(recipe.getText().toString().trim());
-                                recipe1.setMethod(method.getText().toString().trim());
-                                recipe1.setServings(servings.getText().toString().trim());
-                                recipe1.setPrice(price.getText().toString().trim());
                                 if (taskSnapshot.getMetadata() != null) {
                                     if (taskSnapshot.getMetadata().getReference() != null) {
                                         Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
@@ -302,13 +334,12 @@ public class DisplayRecipeScroll extends AppCompatActivity {
                                             public void onSuccess(Uri uri) {
                                                 String imageUrl = uri.toString();
                                                 recipe1.setImageUrl(imageUrl);
-                                                db2.child(recipe.getText().toString()).setValue(recipe1);
+                                                db.child("imageUrl").setValue(recipe1.getImageUrl());
                                             }
                                         });
                                     }
                                 }
-                                Intent myIntent = new Intent(DisplayRecipeScroll.this, AddIngredients.class);
-                                startActivity(myIntent);
+
                             }catch(Exception e){
                                 System.out.println(e.getMessage());
                             }
@@ -322,8 +353,9 @@ public class DisplayRecipeScroll extends AppCompatActivity {
                     });
 
         }else{
-            Toast.makeText(DisplayRecipeScroll.this,"Details are not completely filled",Toast.LENGTH_SHORT).show();
+
         }
+
     }
 
 

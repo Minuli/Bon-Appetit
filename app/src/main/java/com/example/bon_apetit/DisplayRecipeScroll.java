@@ -179,7 +179,10 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         updateRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(TextUtils.isEmpty(recipe.getText().toString())){
+                if(uploadTask != null && uploadTask.isInProgress()){
+                    Toast.makeText(DisplayRecipeScroll.this,"upload unsuccessful",Toast.LENGTH_SHORT).show();
+                }
+                else if(TextUtils.isEmpty(recipe.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Please enter the name of recipe",Toast.LENGTH_SHORT).show();
                 }
                 else if(TextUtils.isEmpty(servings.getText().toString())){
@@ -255,7 +258,7 @@ public class DisplayRecipeScroll extends AppCompatActivity {
                                         });
                                     }
                                 }
-                                
+
                             }catch(Exception e){
                                 System.out.println(e.getMessage());
                             }

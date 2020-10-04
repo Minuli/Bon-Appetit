@@ -5,23 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Models.Recipes;
+import com.example.adapters.RecipeImageAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +50,6 @@ public class HomepageActivityNew extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
                     Recipes recipes =  dataSnapshot1.getValue(Recipes.class);
-                    Toast.makeText(HomepageActivityNew.this, recipes.getImageUrl(), Toast.LENGTH_LONG).show();
                     recipe.add(recipes);
                 }
                 recipeImageAdapter = new RecipeImageAdapter(HomepageActivityNew.this,recipe);
@@ -66,5 +61,7 @@ public class HomepageActivityNew extends AppCompatActivity {
                 Toast.makeText(HomepageActivityNew.this, databaseError.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
 }

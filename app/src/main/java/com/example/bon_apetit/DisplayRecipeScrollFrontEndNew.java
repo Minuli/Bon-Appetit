@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -28,8 +29,10 @@ public class DisplayRecipeScrollFrontEndNew extends AppCompatActivity {
     String recipeName;
     DatabaseReference db;
     StorageReference storage;
-    EditText servings, recipe, method, price;
+    TextView servings, price;
+    EditText method;
     ImageView imageBox;
+    TextView recipe;
 
 
     @Override
@@ -49,7 +52,7 @@ public class DisplayRecipeScrollFrontEndNew extends AppCompatActivity {
         imageBox = findViewById(R.id.imageBox);
 
         Intent myIntent = getIntent();
-        recipeName = myIntent.getStringExtra("EnteredRecipeName");
+        recipeName = myIntent.getStringExtra("EnteredRecipe");
         System.out.println("getname :"+recipeName);
 
         db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description").child(recipeName);

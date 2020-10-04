@@ -14,15 +14,19 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayIngredientsFrontEnd"></activity>er
+        <activity android:name=".DisplayIngredientsFrontEnd"/>
         <activity android:name=".Cus_feed" />
         <activity android:name=".nav" />
         <activity android:name=".recipe_table" />
         <activity android:name=".AddIngredients" />
         <activity android:name=".custregaddprofilepic" />
         <activity android:name=".orders_table" />
-        <activity android:name=".ViewRecipeNew" />
-        <activity android:name=".AddRecipies" />
+        <activity android:name=".ViewRecipeNew" >
+        </activity>
+        <activity android:name=".AddRecipies">
+        </activity>
+        <activity android:name=".UserLoginPage" />
+
         <activity android:name=".EditProfile" />
         <activity android:name=".addPost" />
         <activity android:name=".customerRegistration" android:parentActivityName=".UserLoginPage">
@@ -56,9 +60,19 @@
         <activity android:name=".UploadButton"></activity>
 
         <activity android:name=".HomepageActivityNew">
+
         </activity>
-        <activity android:name=".DisplayRecipeScroll" android:label="" android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DisplayRecipeScroll"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddRecipesNew">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+   
         </activity>
     </application>
 

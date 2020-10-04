@@ -45,6 +45,7 @@ public class HomepageActivityNew extends AppCompatActivity {
         recipe = new ArrayList<>();
         db = FirebaseDatabase.getInstance().getReference("Recipes/Description");
 
+        recipeImageAdapter = new RecipeImageAdapter(HomepageActivityNew.this,recipe);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

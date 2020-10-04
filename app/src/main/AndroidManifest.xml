@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,12 +14,18 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayIngredientsFrontEnd"></activity>
+        <activity android:name=".DisplayIngredientsFrontEnd"></activity>er
         <activity android:name=".Cus_feed" />
         <activity android:name=".nav" />
         <activity android:name=".recipe_table" />
         <activity android:name=".AddIngredients" />
         <activity android:name=".custregaddprofilepic" />
+        <activity android:name=".orders_table" />
+        <activity android:name=".ViewRecipeNew" />
+        <activity android:name=".AddRecipies" />
+        <activity android:name=".UserLoginPage" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".custregaddprofilepic"></activity>
         <activity android:name=".addPost" />
         <activity
             android:name=".customerRegistration"
@@ -48,6 +55,35 @@
         <activity android:name=".DisplayIngredientsBackend" />
         <activity android:name=".DisplayRecipeScrollFrontEndNew" />
         <activity android:name=".UploadButton"></activity>
+        <activity android:name=".custregaddprofilepic" />
+        <activity android:name=".addPost" />
+        <activity
+            android:name=".customerRegistration"
+            android:parentActivityName=".UserLoginPage"></activity>
+        <activity android:name=".UpdateRecipe" />
+        <activity android:name=".ViewRecipeBackend" />
+        <activity android:name=".AddStock" />
+        <activity android:name=".mycart"></activity>
+        <activity android:name=".Feed" />
+        <activity android:name=".employee_login" />
+        <activity android:name=".employee_home_page"></activity>
+        <activity android:name=".customerProfile" />
+        <activity android:name=".ContactUsPage" />
+        <activity android:name=".history" />
+        <activity android:name=".stock_table">
+
+        </activity>
+        <activity android:name=".Settings" />
+        <activity android:name=".FrontEndRecipe" />
+        <activity android:name=".payment_one" />
+        <activity android:name=".payment_two"></activity>
+        <activity android:name=".update_stock" />
+        <activity android:name=".updatePost" />
+        <activity android:name=".Settings"></activity>
+        </activity>
+        <activity android:name=".DisplayIngredientsBackend" />
+        <activity android:name=".UploadButton">
+        </activity>
         <activity android:name=".HomepageActivityNew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,6 +96,9 @@
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddRecipesNew"></activity>
+        <activity android:name=".recipe_table" />
+        <activity android:name=".AddIngredients" />
+        <activity android:name=".ViewRecipeBackend" />
     </application>
 
 </manifest>

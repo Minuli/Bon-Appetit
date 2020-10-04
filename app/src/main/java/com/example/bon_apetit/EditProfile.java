@@ -56,12 +56,11 @@ public class EditProfile extends AppCompatActivity {
     StorageTask uploadTask;
     FirebaseAuth firebaseAuth;
 
-
+    String img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
-
         dbreff = FirebaseDatabase.getInstance().getReference().child("customer");
         firebaseAuth = FirebaseAuth.getInstance();
         final String uid = firebaseAuth.getCurrentUser().getUid();
@@ -77,6 +76,7 @@ public class EditProfile extends AppCompatActivity {
         bedit = findViewById(R.id.btneditacc);
         bresetpwd = findViewById(R.id.btnresetpwd);
         baddpropic = findViewById(R.id.imageadd);
+
 
         progressDialog = new ProgressDialog(EditProfile.this);
         customer = new Customer();
@@ -94,6 +94,7 @@ public class EditProfile extends AppCompatActivity {
                         unumber.setText(dataSnapshot.child("number").getValue().toString());
                         uaddress.setText(dataSnapshot.child("address").getValue().toString());
                         customer.setImageuri(dataSnapshot.child("profilePic").child("imageuri").getValue().toString());
+
                         try {
                             System.out.println(customer.getImageuri());
                             Picasso.get()
@@ -102,9 +103,6 @@ public class EditProfile extends AppCompatActivity {
                                 .centerCrop()
                                 .placeholder(R.mipmap.ic_launcher_round)
                                 .into(propic);
-
-
-                        //Glide.with(getApplicationContext()).load(img).into(propic);
                         }catch (Exception e){
                             Toast.makeText(getApplicationContext(),"Unable to load profile picture",Toast.LENGTH_SHORT).show();
                             System.out.println(e.getMessage());
@@ -132,6 +130,7 @@ public class EditProfile extends AppCompatActivity {
         bedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                uploadPic();
                 dbreff = FirebaseDatabase.getInstance().getReference().child("Customer").child(uid);
                 if(TextUtils.isEmpty(uname.getText().toString())){
                     uname.setError("Name feild Cannot be left empty");
@@ -143,7 +142,7 @@ public class EditProfile extends AppCompatActivity {
                     uaddress.setError("delivary address felid cannot be left empty");
                 }
                 else {
-                    uploadPic();
+
                     customer.setName(uname.getText().toString().trim());
                     customer.setEmail(uemail.getText().toString().trim());
                     customer.setNumber(unumber.getText().toString().trim());
@@ -171,7 +170,6 @@ public class EditProfile extends AppCompatActivity {
                 }
             }
         });
-
     }
     private  void openFileChoose(){
         Intent intent = new Intent();
@@ -183,14 +181,14 @@ public class EditProfile extends AppCompatActivity {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType((propicuir)));
-
     }
     private void uploadPic(){
-        if(propic != null){
+        if(propicuir != null){
             progressDialog.setTitle("Uploading image");
             progressDialog.show();
-            StorageReference storageReference= storage.child("Customer").child(firebaseAuth.getCurrentUser().getUid()).child(getpropic(propicuir));
-            uploadTask = storageReference.putFile(propicuir).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            StorageReference fpath/*storageReference*/= storage.child("Customer").child(firebaseAuth.getCurrentUser().getUid());//.child(getpropic(propicuir));
+            StorageReference stref = fpath.child(getpropic(propicuir));
+            uploadTask = stref.putFile(propicuir).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Toast.makeText(getApplicationContext(),"Profile picture updated Scuessfully",Toast.LENGTH_SHORT).show();
@@ -222,6 +220,9 @@ public class EditProfile extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     });
+        }
+        else{
+
         }
     }
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

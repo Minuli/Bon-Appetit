@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class UserLoginPage extends AppCompatActivity {
     EditText txtemail,txtPwd;
-    Button login,singup;
+    Button login,singup,bbackenddemo;
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
     @Override
@@ -32,6 +32,7 @@ public class UserLoginPage extends AppCompatActivity {
 
         login = findViewById(R.id.btnlogin);
         singup = findViewById(R.id.btnloadprofile);
+        bbackenddemo = findViewById(R.id.btnbackend);
 
         progressDialog = new ProgressDialog(UserLoginPage.this);
 
@@ -79,6 +80,13 @@ public class UserLoginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),customerRegistration.class);
+                startActivity(intent);
+            }
+        });
+        bbackenddemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),employee_home_page.class);
                 startActivity(intent);
             }
         });

@@ -49,7 +49,10 @@
         <activity android:name=".payment_two"></activity>
         <activity android:name=".update_stock"></activity>
         <activity android:name=".ViewRecipeNew">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".updatePost">
         </activity>
@@ -65,10 +68,6 @@
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddRecipesNew">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

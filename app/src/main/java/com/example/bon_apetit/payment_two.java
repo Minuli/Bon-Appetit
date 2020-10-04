@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.Models.Cart;
 import com.example.adapters.SummaryCartAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,7 +31,8 @@ public class payment_two extends AppCompatActivity {
     Cart cart = new Cart();
     ArrayList<Cart> icart;
     SummaryCartAdapter summaryCartAdapter;
-    DatabaseReference db;
+    DatabaseReference db,dbref;
+    FirebaseAuth fauth ;
 
 
     @Override
@@ -42,6 +45,8 @@ public class payment_two extends AppCompatActivity {
         total_botm = findViewById(R.id.txttotal);
         txttotal = findViewById(R.id.price);
         cartCycler=findViewById(R.id.cartRecycler);
+        pay=findViewById(R.id.pay);
+        cancel=findViewById(R.id.cancel);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(payment_two.this);
         cartCycler.setLayoutManager(linearLayoutManager);
         cartCycler.setHasFixedSize(true);
@@ -52,32 +57,48 @@ public class payment_two extends AppCompatActivity {
         cartCycler.setAdapter(summaryCartAdapter);
         summaryCartAdapter.notifyDataSetChanged();
 
-        db = FirebaseDatabase.getInstance().getReference().child("Recipes");
+        db = FirebaseDatabase.getInstance().getReference().child("Cart");
+        dbref=FirebaseDatabase.getInstance().getReference();
 
         icart = new ArrayList<Cart>();
+
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbref.child("Active Order").child(String.valueOf(System.currentTimeMillis())).setValue(cart);
+
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearall();
+            }
+        });
 
 
     }
 
-
     public void getFirebaseData() {
-        db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description");
+        fauth = FirebaseAuth.getInstance();
+        String currentuser=fauth.getUid();
+        db = FirebaseDatabase.getInstance().getReference().child("Basket").child(currentuser);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 clearall();
-                float total = 0;
+                float total=0;
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-
                     System.out.println(snapshot);
                     Toast.makeText(payment_two.this,"Selected Items are ready !!",Toast.LENGTH_LONG).show();
-                    cart.setReceipeName(snapshot.child("recipeName").getValue().toString());
+                    cart.setReceipeName((String) snapshot.child("receipeName").getValue());
+
                     cart.setPrice(Float.parseFloat(snapshot.child("price").getValue().toString()));
+                    //cart.setTotal(Float.parseFloat(snapshot.child("total").getValue().toString()));
 
-                    total += cart.getPrice();
+                    total+=total+cart.getPrice();
                     icart.add(cart);
-
-
                 }
                 summaryCartAdapter=new SummaryCartAdapter(getApplicationContext(),icart);
                 cartCycler.setAdapter(summaryCartAdapter);

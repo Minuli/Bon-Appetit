@@ -62,7 +62,7 @@ public class UserLoginPage extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 progressDialog.hide();
                                 Toast.makeText(getApplicationContext(),"Login Successfull",Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(getApplicationContext(),EditProfile.class);
+                                Intent intent = new Intent(getApplicationContext(),ViewRecipeNew.class);
                                 finish();
                                 startActivity(intent);
                             }

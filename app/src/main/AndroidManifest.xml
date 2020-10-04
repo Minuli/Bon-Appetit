@@ -25,15 +25,10 @@
         <activity android:name=".AddRecipies" />
         <activity android:name=".UserLoginPage" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".custregaddprofilepic"></activity>
         <activity android:name=".addPost" />
         <activity
             android:name=".customerRegistration"
             android:parentActivityName=".UserLoginPage"></activity>
-        <activity android:name=".orders_table" />
-        <activity android:name=".AddRecipies" />
-        <activity android:name=".UserLoginPage"></activity>
-        <activity android:name=".EditProfile"></activity>
         <activity android:name=".UpdateRecipe" />
         <activity android:name=".ViewRecipeBackend" />
         <activity android:name=".AddStock"></activity>
@@ -50,40 +45,11 @@
         <activity android:name=".payment_one" />
         <activity android:name=".payment_two" />
         <activity android:name=".update_stock" />
-        <activity android:name=".ViewRecipeNew"></activity>
         <activity android:name=".updatePost"></activity>
         <activity android:name=".DisplayIngredientsBackend" />
         <activity android:name=".DisplayRecipeScrollFrontEndNew" />
         <activity android:name=".UploadButton"></activity>
-        <activity android:name=".custregaddprofilepic" />
-        <activity android:name=".addPost" />
-        <activity
-            android:name=".customerRegistration"
-            android:parentActivityName=".UserLoginPage"></activity>
-        <activity android:name=".UpdateRecipe" />
-        <activity android:name=".ViewRecipeBackend" />
-        <activity android:name=".AddStock" />
-        <activity android:name=".mycart"></activity>
-        <activity android:name=".Feed" />
-        <activity android:name=".employee_login" />
-        <activity android:name=".employee_home_page"></activity>
-        <activity android:name=".customerProfile" />
-        <activity android:name=".ContactUsPage" />
-        <activity android:name=".history" />
-        <activity android:name=".stock_table">
 
-        </activity>
-        <activity android:name=".Settings" />
-        <activity android:name=".FrontEndRecipe" />
-        <activity android:name=".payment_one" />
-        <activity android:name=".payment_two"></activity>
-        <activity android:name=".update_stock" />
-        <activity android:name=".updatePost" />
-        <activity android:name=".Settings"></activity>
-        </activity>
-        <activity android:name=".DisplayIngredientsBackend" />
-        <activity android:name=".UploadButton">
-        </activity>
         <activity android:name=".HomepageActivityNew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -96,9 +62,6 @@
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddRecipesNew"></activity>
-        <activity android:name=".recipe_table" />
-        <activity android:name=".AddIngredients" />
-        <activity android:name=".ViewRecipeBackend" />
     </application>
 
 </manifest>

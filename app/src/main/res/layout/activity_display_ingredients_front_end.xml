@@ -60,8 +60,19 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="491dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="160dp"></androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/home5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="173dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/brown"
+        android:text="@string/home" />
 
 </RelativeLayout>

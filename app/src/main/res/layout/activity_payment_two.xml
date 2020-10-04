@@ -7,7 +7,7 @@
     tools:context=".payment_two">
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/pay"
         android:layout_width="199dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -23,11 +23,12 @@
         app:layout_constraintTop_toBottomOf="@+id/divider8" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/cancel"
         android:layout_width="199dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/cancel_btn_background"
         android:text="Cancel"
         android:textColor="#fff"

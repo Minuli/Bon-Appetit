@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.Models.Cart;
 import com.example.Models.Recipes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -13,10 +14,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -28,6 +31,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -37,6 +41,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class DisplayRecipeScroll extends AppCompatActivity {
@@ -45,14 +50,19 @@ public class DisplayRecipeScroll extends AppCompatActivity {
 
     String recipeName, img;
     DatabaseReference db, db1, db2;
-    StorageReference storage, storage1, storage2;
+    StorageReference storage;
+    StorageReference storage1;
+    StorageReference storage2;
+    DatabaseReference dbcart;
     EditText servings, recipe, method, price;
     ImageView imageBox;
-    Button getIngredient, delete, uploadImage, updateRecipe;
+    Button getIngredient, delete, uploadImage, updateRecipe,addtocart;
     Uri imageUri;
     Recipes recipe1;
     ProgressDialog progressDialog;
     StorageTask uploadTask;
+    Cart cart;
+    ArrayList<Cart> icart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +83,9 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         delete = findViewById(R.id.deleteRecipe);
         uploadImage = findViewById(R.id.uploadImage);
         updateRecipe = findViewById(R.id.updateRecipe);
+        addtocart=findViewById(R.id.addTocart);
         progressDialog = new ProgressDialog(DisplayRecipeScroll.this);
+        icart=new ArrayList<>();
 
         Intent myIntent = getIntent();
         recipeName = myIntent.getStringExtra("EnteredRecipeName");
@@ -83,6 +95,7 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         db1 = FirebaseDatabase.getInstance().getReference("Recipes").child("Ingredients");
         storage2 = FirebaseStorage.getInstance().getReference().child("Recipes").child("Description");
         db2 = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description");
+
         storage = FirebaseStorage.getInstance().getReference();
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -199,7 +212,75 @@ public class DisplayRecipeScroll extends AppCompatActivity {
             }
         });
 
+        addtocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                progressDialog.setTitle("Adding to Cart");
+                progressDialog.show();
+                dbcart=FirebaseDatabase.getInstance().getReference();
+                final Query query=dbcart.child("Recipes").child("Description");
+                FirebaseAuth fauth;
+                fauth = FirebaseAuth.getInstance();
+                final String currentuser=fauth.getUid();
+                //dbcart.child("Basket").child(currentuser);
+
+
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                            if(recipeName.equals(snapshot.getKey())) {
+                                cart = new Cart();
+                                System.out.println(snapshot);
+                                Toast.makeText(DisplayRecipeScroll.this, "Selected Item is added", Toast.LENGTH_LONG).show();
+                                cart.setImageUri(snapshot.child("imageUrl").getValue().toString());
+                                cart.setReceipeName(snapshot.child("recipeName").getValue().toString());
+                                cart.setServings(snapshot.child("servings").getValue().toString() + " Servings");
+                                cart.setPrice(Float.parseFloat(snapshot.child("price").getValue().toString()));
+
+                                icart.add(cart);
+
+                                db.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        Toast.makeText(getApplicationContext(),"Item recorded",Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        Toast.makeText(getApplicationContext(),"Item recode fail",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+
+                        }
+                        dbcart.child("Basket").child(currentuser).child(String.valueOf(System.currentTimeMillis())).setValue(cart);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+                Intent intentcart=new Intent(getApplicationContext(),mycart.class);
+                System.out.println("blaa blaaaa");
+                intentcart.putExtra("recipe",recipeName);
+                //intentcart.putExtra("servings",  servings.getText().toString());
+                //intentcart.putExtra("price", price.getText().toString());
+                startActivity(intentcart);
+
+
+
+            }
+        });
+
     }
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -1,13 +1,19 @@
 package com.example.Models;
 
-import android.net.Uri;
-
 public class Cart {
     String receipeName,servings;
-    Float price;
+    Float price,Total;
     String imageUri;
 
     public Cart() {
+    }
+
+    public Float getTotal() {
+        return Total;
+    }
+
+    public void setTotal(float total) {
+        Total = total;
     }
 
     public String getReceipeName() {

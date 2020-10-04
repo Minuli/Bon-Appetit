@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.Models.Cart;
 import com.example.adapters.CartAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,13 +27,18 @@ import java.util.ArrayList;
 
 public class mycart extends AppCompatActivity {
 
+    String recipeName;
     Button checkout,cancel;
     RecyclerView recyclerView;
     Cart cart;
-    private DatabaseReference db;
+    private DatabaseReference db,dbref;
+    float total = 0;
+
     CartAdapter cartAdapter;
     ArrayList<Cart> icart;
     TextView mCartTotalTextView;
+    FirebaseAuth fauth;
+
 
 
     @Override
@@ -45,9 +51,13 @@ public class mycart extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
+        Intent intentcart=getIntent();
+        recipeName=intentcart.getStringExtra("recipe");
+        System.out.println("getname"+recipeName);
 
+        final String user=FirebaseAuth.getInstance().getUid();
         db= FirebaseDatabase.getInstance().getReference();
-
+        dbref=FirebaseDatabase.getInstance().getReference().child("Basket").child(user);
         icart = new ArrayList<Cart>();
         getFirebaseData();
         clearall();
@@ -70,37 +80,70 @@ public class mycart extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                icart.remove(cartAdapter);
+                dbref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild(user)){
+                            dbref=FirebaseDatabase.getInstance().getReference().child("Basket").child(user);
+                            dbref.removeValue();
+                        }
+                        clearall();
+                        mCartTotalTextView.setText("LKR 0.00 ");
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
                 Toast.makeText(getApplicationContext(),"No Items to display",Toast.LENGTH_LONG).show();
             }
         });
     }
 
     public void getFirebaseData(){
-        Query query=db.child("Recipes").child("Description");
-        query.addValueEventListener(new ValueEventListener() {
+        fauth = FirebaseAuth.getInstance();
+        final String currentuser=FirebaseAuth.getInstance().getUid();
+       // final Query query=db.child("Basket").child(currentuser);
+        db = FirebaseDatabase.getInstance().getReference().child("Basket").child(currentuser);
+        db.addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 clearall();
-                float total = 0;
+                System.out.println("Datas apshot ISSS ....>"+dataSnapshot);
+
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    total=0;
-                    cart =new Cart();
-                    System.out.println(snapshot);
-                    Toast.makeText(mycart.this,"Selected Item is added",Toast.LENGTH_LONG).show();
-                    cart.setImageUri(snapshot.child("imageUrl").getValue().toString());
-                    cart.setReceipeName(snapshot.child("recipeName").getValue().toString());
-                    cart.setServings(snapshot.child("servings").getValue().toString()+" Servings");
-                    cart.setPrice(Float.parseFloat(snapshot.child("price").getValue().toString()));
+                        cart = new Cart();
+                        System.out.println("SNAPSHOT ISSS ....>"+snapshot);
+                        Toast.makeText(mycart.this, "Selected Item is added", Toast.LENGTH_LONG).show();
+                        cart.setImageUri(snapshot.child("imageUri").getValue().toString());
+                        System.out.println("recpie name: "+snapshot.child("receipeName").getValue().toString());
+                        cart.setReceipeName(snapshot.child("receipeName").getValue().toString());
+                        cart.setServings(snapshot.child("servings").getValue().toString() + " Servings");
+                        cart.setPrice(Float.parseFloat(snapshot.child("price").getValue().toString()));
 
-                    total += cart.getPrice();
-                    icart.add(cart);
+                        total = calculateTotal(cart.getPrice());
+                        cart.setTotal(total);
 
+                        icart.add(cart);
 
+                        db.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                Toast.makeText(getApplicationContext(),"Item recorded",Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                Toast.makeText(getApplicationContext(),"Item recode fail",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    //db.child("total").setValue(total);
                 }
-
-
+                //db.child("Basket").child(String.valueOf(System.currentTimeMillis())).setValue(cart);
                 cartAdapter=new CartAdapter(getApplicationContext(),icart);
                 recyclerView.setAdapter(cartAdapter);
                 cartAdapter.notifyDataSetChanged();
@@ -128,6 +171,11 @@ public class mycart extends AppCompatActivity {
         icart=new ArrayList<>();
 
     }
+
+    public float calculateTotal(float price){
+        total +=  price;
+        return total;
+    };
 
 
 }

@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/parent_layout"
         >
         
         <TextView
@@ -21,7 +22,7 @@
             android:layout_marginBottom="8dp"
         />
         
-        <ImageView
+        <ImageButton
             android:id="@+id/imageUpload"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>

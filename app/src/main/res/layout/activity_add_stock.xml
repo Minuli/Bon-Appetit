@@ -6,9 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".AddStock">
 
+    <Spinner
+        android:id="@+id/asunit"
+        android:layout_width="114dp"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.596" />
+
     <EditText
         android:id="@+id/txtirol"
-        android:layout_width="347dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
@@ -18,6 +30,7 @@
         android:paddingLeft="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtrol"
         app:layout_constraintVertical_bias="0.0" />
@@ -42,34 +55,26 @@
         android:id="@+id/txtrol2"
         android:layout_width="186dp"
         android:layout_height="51dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="12dp"
         android:text="@string/txtup"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtirol"
-        app:layout_constraintVertical_bias="0.359" />
+        app:layout_constraintTop_toBottomOf="@+id/txtirol" />
 
     <EditText
         android:id="@+id/txtiup"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/rectangletxtbox"
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtrol"
-        app:layout_constraintVertical_bias="0.718" />
+        app:layout_constraintTop_toBottomOf="@+id/txtrol2" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -191,68 +196,25 @@
         android:layout_width="157dp"
         android:layout_height="53dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@color/brown"
+        android:background="@drawable/normalbutton"
         android:text="@string/addstock"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintEnd_toStartOf="@+id/btnreset"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtiup"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtiup" />
 
     <Button
         android:id="@+id/btnreset"
         android:layout_width="151dp"
         android:layout_height="53dp"
-        android:layout_marginTop="8dp"
-        android:background="#F4B241"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/buttondelete"
         android:text="@string/btnCacncel"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.853"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtiup"
-        app:layout_constraintVertical_bias="0.428" />
-
-    <RadioGroup
-        android:id="@+id/radio_group"
-        android:layout_width="258dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/txtrol2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtirol"
-        app:layout_constraintVertical_bias="0.0">
-
-        <RadioButton
-            android:id="@+id/rmeasurekg"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/measureunitKg"
-            tools:layout_editor_absoluteX="-139dp"
-            tools:layout_editor_absoluteY="654dp" />
-
-        <RadioButton
-            android:id="@+id/rmeasureL"
-            android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            android:text="@string/measureunitliters" />
-
-        <RadioButton
-            android:id="@+id/rmeasureOther"
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:text="@string/measureunitother" />
-
-    </RadioGroup>
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnaddstock"
+        app:layout_constraintTop_toBottomOf="@+id/txtiup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

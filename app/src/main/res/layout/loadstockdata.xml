@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
@@ -12,7 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="64dp">
 
             <TextView
                 android:id="@+id/stockid"
@@ -23,15 +23,15 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="9dp"
+                android:layout_marginEnd="237dp"
                 android:layout_marginBottom="10dp"
                 android:text="@string/customerID_dummy_val1"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/stockname"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="401dp"
+                android:layout_height="56dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
@@ -44,7 +44,7 @@
             <TextView
                 android:id="@+id/stockup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="56dp"
                 android:layout_below="@+id/imageView13"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -52,9 +52,17 @@
                 android:text="@string/updateFile"
                 android:textSize="16sp" />
 
+            <Button
+                android:id="@+id/btndeltm"
+                android:layout_width="34dp"
+                android:layout_height="52dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/trashcan" />
+
 
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

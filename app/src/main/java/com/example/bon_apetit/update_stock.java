@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.Models.Stock;
@@ -27,6 +29,7 @@ public class update_stock extends AppCompatActivity {
     //model
     Stock stock;
     int flag = 0 ;
+    Spinner unit;
     //Radio buutons and group
     RadioGroup radioGroup;
     RadioButton radioButton;
@@ -46,7 +49,11 @@ public class update_stock extends AppCompatActivity {
         final String itmName = intent.getStringExtra("stockName");
 
         //Mapping Items
-        radioGroup = findViewById(R.id.radio_group);
+        unit =findViewById(R.id.stockUnit);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(update_stock.this,android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.stocks_units)     );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        unit.setAdapter(adapter);
+
         sname = findViewById(R.id.txt_inventory);
         sqty = findViewById(R.id.txt_Qty);
         srol = findViewById(R.id.txt_ROL);
@@ -112,9 +119,7 @@ public class update_stock extends AppCompatActivity {
                        stock.setQty(Integer.valueOf(sqty.getText().toString().trim()));
                        stock.setRol(Integer.valueOf(srol.getText().toString().trim()));
                        stock.setUnitprice(Float.valueOf(sup.getText().toString().trim()));
-                       int radioId = radioGroup.getCheckedRadioButtonId();
-                       radioButton = findViewById(radioId);
-                       stock.setUnit(radioButton.getText().toString());
+                       stock.setUnit(unit.getSelectedItem().toString().trim());
                        dbref.child(itmName).setValue(stock);
                        dbref.addValueEventListener(new ValueEventListener() {
                            @Override

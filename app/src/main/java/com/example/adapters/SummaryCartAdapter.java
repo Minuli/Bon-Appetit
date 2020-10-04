@@ -63,6 +63,7 @@ public class SummaryCartAdapter extends RecyclerView.Adapter<SummaryCartAdapter.
         holder.price.setText(icart.get(position).getPrice().toString());
 
 
+
     }
 
     @Override

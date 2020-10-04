@@ -22,13 +22,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private static final String TAG="Recycler View";
     private ArrayList<Cart> icart= new ArrayList<>();
-    private Integer totalprice=0;
+    //Float Total;
     Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView receipename,noofservings,price;
         Button delete;
         ImageView recPIC;
+
 
 
 
@@ -68,7 +69,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.receipename.setText(icart.get(position).getReceipeName());
         holder.noofservings.setText(icart.get(position).getServings());
         holder.price.setText(icart.get(position).getPrice().toString());
-
+        //Total=Total+icart.get(position).getPrice();
 
         Picasso.get().load(cart.getImageUri()).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(holder.recPIC);
 
@@ -79,6 +80,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 icart.remove(position);
 
                 notifyDataSetChanged();
+
             }
         });
 

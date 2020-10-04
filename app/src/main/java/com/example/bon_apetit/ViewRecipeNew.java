@@ -56,7 +56,7 @@ public class ViewRecipeNew extends AppCompatActivity {
                             enteredRecipeName.setText(" ");
                         }
                         else if (flag == 1){
-                            Toast.makeText(getApplicationContext(),"Search Successful",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
                             Intent myIntent = new Intent(ViewRecipeNew.this, DisplayRecipeScroll.class);
                             myIntent.putExtra("EnteredRecipeName",rname);
                             System.out.println("Send name : "+rname);
@@ -74,5 +74,7 @@ public class ViewRecipeNew extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

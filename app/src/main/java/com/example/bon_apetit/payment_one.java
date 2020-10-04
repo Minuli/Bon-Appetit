@@ -3,6 +3,7 @@ package com.example.bon_apetit;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -79,6 +80,7 @@ public class payment_one extends AppCompatActivity {
         });
         db= FirebaseDatabase.getInstance().getReference().child("Payment");
         fauth = FirebaseAuth.getInstance();
+
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -93,6 +95,18 @@ public class payment_one extends AppCompatActivity {
 
             }
         });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //address.setText("");
+                //email.setText("");
+                date.setText("");
+                time.setText("");
+
+            }
+        });
+
 
 
         proceed.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +151,8 @@ public class payment_one extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"fail",Toast.LENGTH_SHORT).show();
                             }
                         });
+                        Intent  intentPaymenttwo=new Intent(getApplicationContext(),payment_two.class);
+                        startActivity(intentPaymenttwo);
 
                     }
 

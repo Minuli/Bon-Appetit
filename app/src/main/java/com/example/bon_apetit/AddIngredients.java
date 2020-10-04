@@ -77,7 +77,7 @@ public class AddIngredients extends AppCompatActivity {
                         ingredients.setIngredient(ingredient.getText().toString().trim());
                         ingredients.setAmount(amount.getText().toString().trim());
                         ingredients.setUnit(unit.getSelectedItem().toString().trim());
-                        db.child("Ingredient" + String.valueOf(ingredientId + 1)).setValue(ingredients);
+                        db.child(System.currentTimeMillis()+ "Ingredient" + String.valueOf(ingredientId + 1)).setValue(ingredients);
                     }
 
                 }catch (Exception e){

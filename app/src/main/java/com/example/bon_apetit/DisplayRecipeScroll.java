@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.example.Models.Cart;
 import com.example.Models.Recipes;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -13,10 +14,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -28,6 +31,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -37,6 +41,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class DisplayRecipeScroll extends AppCompatActivity {
@@ -45,14 +50,19 @@ public class DisplayRecipeScroll extends AppCompatActivity {
 
     String recipeName, img;
     DatabaseReference db, db1, db2;
-    StorageReference storage, storage1, storage2;
+    StorageReference storage;
+    StorageReference storage1;
+    StorageReference storage2;
+    DatabaseReference dbcart;
     EditText servings, recipe, method, price;
     ImageView imageBox;
-    Button getIngredient, delete, uploadImage, updateRecipe;
+    Button getIngredient, delete, uploadImage, updateRecipe,addtocart;
     Uri imageUri;
     Recipes recipe1;
     ProgressDialog progressDialog;
     StorageTask uploadTask;
+    Cart cart;
+    ArrayList<Cart> icart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,16 +83,19 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         delete = findViewById(R.id.deleteRecipe);
         uploadImage = findViewById(R.id.uploadImage);
         updateRecipe = findViewById(R.id.updateRecipe);
+        addtocart=findViewById(R.id.addTocart);
         progressDialog = new ProgressDialog(DisplayRecipeScroll.this);
+        icart=new ArrayList<>();
 
         Intent myIntent = getIntent();
         recipeName = myIntent.getStringExtra("EnteredRecipeName");
         System.out.println("getname :"+recipeName);
 
         db = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description").child(recipeName);
-        db1 = FirebaseDatabase.getInstance().getReference("Recipes").child("Ingredients").child(recipeName);
+        db1 = FirebaseDatabase.getInstance().getReference("Recipes").child("Ingredients");
         storage2 = FirebaseStorage.getInstance().getReference().child("Recipes").child("Description");
         db2 = FirebaseDatabase.getInstance().getReference().child("Recipes").child("Description");
+
         storage = FirebaseStorage.getInstance().getReference();
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -119,16 +132,43 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                db2.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild(recipeName)){
+                            db2 = FirebaseDatabase.getInstance().getReference("Recipes").child("Description").child(recipeName);
+                            db2.removeValue();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+                db1.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild(recipeName)){
+                            db1 = FirebaseDatabase.getInstance().getReference("Recipes").child("Ingredients").child(recipeName);
+                            db1.removeValue();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 storage1 = FirebaseStorage.getInstance().getReferenceFromUrl(img);
                 storage1.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void v) {
-                        db.removeValue();
-                        db1.removeValue();
                         Toast.makeText(DisplayRecipeScroll.this,"Delete Successful",Toast.LENGTH_LONG).show();
-                        Intent intent1 = new Intent(getApplicationContext(), AddIngredients.class);
+                        Intent intent1 = new Intent(getApplicationContext(),  ViewRecipeNew.class);
                         finish();
                         startActivity(intent1);
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -172,7 +212,75 @@ public class DisplayRecipeScroll extends AppCompatActivity {
             }
         });
 
+        addtocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                progressDialog.setTitle("Adding to Cart");
+                progressDialog.show();
+                dbcart=FirebaseDatabase.getInstance().getReference();
+                final Query query=dbcart.child("Recipes").child("Description");
+                FirebaseAuth fauth;
+                fauth = FirebaseAuth.getInstance();
+                final String currentuser=fauth.getUid();
+                //dbcart.child("Basket").child(currentuser);
+
+
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                            if(recipeName.equals(snapshot.getKey())) {
+                                cart = new Cart();
+                                System.out.println(snapshot);
+                                Toast.makeText(DisplayRecipeScroll.this, "Selected Item is added", Toast.LENGTH_LONG).show();
+                                cart.setImageUri(snapshot.child("imageUrl").getValue().toString());
+                                cart.setReceipeName(snapshot.child("recipeName").getValue().toString());
+                                cart.setServings(snapshot.child("servings").getValue().toString() + " Servings");
+                                cart.setPrice(Float.parseFloat(snapshot.child("price").getValue().toString()));
+
+                                icart.add(cart);
+
+                                db.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        Toast.makeText(getApplicationContext(),"Item recorded",Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        Toast.makeText(getApplicationContext(),"Item recode fail",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+
+                        }
+                        dbcart.child("Basket").child(currentuser).child(String.valueOf(System.currentTimeMillis())).setValue(cart);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+                Intent intentcart=new Intent(getApplicationContext(),mycart.class);
+                System.out.println("blaa blaaaa");
+                intentcart.putExtra("recipe",recipeName);
+                //intentcart.putExtra("servings",  servings.getText().toString());
+                //intentcart.putExtra("price", price.getText().toString());
+                startActivity(intentcart);
+
+
+
+            }
+        });
+
     }
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -196,9 +304,20 @@ public class DisplayRecipeScroll extends AppCompatActivity {
     }
 
     private void updateDetails(){
+
+            recipe1 = new Recipes();
+            recipe1.setRecipeName(recipe.getText().toString().trim());
+            recipe1.setMethod(method.getText().toString().trim());
+            recipe1.setServings(servings.getText().toString().trim());
+            recipe1.setPrice(price.getText().toString().trim());
+            db.child("recipeName").setValue(recipe1.getRecipeName());
+            db.child("method").setValue(recipe1.getMethod());
+            db.child("servings").setValue(recipe1.getServings());
+            db.child("price").setValue(recipe1.getPrice());
+
         if(imageUri != null){
-            progressDialog.setTitle("Uploading Details");
-            progressDialog.show();
+            storage1 = FirebaseStorage.getInstance().getReferenceFromUrl(img);
+            storage1.delete();
 
             StorageReference stReference = storage2.child(System.currentTimeMillis()+ "." + obtainFileExtension(imageUri));
 
@@ -206,13 +325,7 @@ public class DisplayRecipeScroll extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(DisplayRecipeScroll.this,"successfully uploaded",Toast.LENGTH_SHORT).show();
                             try {
-                                recipe1 = new Recipes();
-                                recipe1.setRecipeName(recipe.getText().toString().trim());
-                                recipe1.setMethod(method.getText().toString().trim());
-                                recipe1.setServings(servings.getText().toString().trim());
-                                recipe1.setPrice(price.getText().toString().trim());
                                 if (taskSnapshot.getMetadata() != null) {
                                     if (taskSnapshot.getMetadata().getReference() != null) {
                                         Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
@@ -221,13 +334,12 @@ public class DisplayRecipeScroll extends AppCompatActivity {
                                             public void onSuccess(Uri uri) {
                                                 String imageUrl = uri.toString();
                                                 recipe1.setImageUrl(imageUrl);
-                                                db2.child(recipe.getText().toString()).setValue(recipe1);
+                                                db.child("imageUrl").setValue(recipe1.getImageUrl());
                                             }
                                         });
                                     }
                                 }
-                                Intent myIntent = new Intent(DisplayRecipeScroll.this, AddIngredients.class);
-                                startActivity(myIntent);
+
                             }catch(Exception e){
                                 System.out.println(e.getMessage());
                             }
@@ -241,8 +353,9 @@ public class DisplayRecipeScroll extends AppCompatActivity {
                     });
 
         }else{
-            Toast.makeText(DisplayRecipeScroll.this,"Details are not completely filled",Toast.LENGTH_SHORT).show();
+
         }
+
     }
 
 

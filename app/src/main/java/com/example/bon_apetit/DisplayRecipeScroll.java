@@ -179,10 +179,7 @@ public class DisplayRecipeScroll extends AppCompatActivity {
         updateRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(uploadTask != null && uploadTask.isInProgress()){
-                    Toast.makeText(DisplayRecipeScroll.this,"upload unsuccessful",Toast.LENGTH_SHORT).show();
-                }
-                else if(TextUtils.isEmpty(recipe.getText().toString())){
+                if(TextUtils.isEmpty(recipe.getText().toString())){
                     Toast.makeText(getApplicationContext(),"Please enter the name of recipe",Toast.LENGTH_SHORT).show();
                 }
                 else if(TextUtils.isEmpty(servings.getText().toString())){
@@ -223,18 +220,57 @@ public class DisplayRecipeScroll extends AppCompatActivity {
     }
 
     private void updateDetails(){
-            progressDialog.setTitle("Uploading Details");
-            progressDialog.show();
 
             recipe1 = new Recipes();
             recipe1.setRecipeName(recipe.getText().toString().trim());
             recipe1.setMethod(method.getText().toString().trim());
             recipe1.setServings(servings.getText().toString().trim());
             recipe1.setPrice(price.getText().toString().trim());
-            db2.child("recipeName").setValue(recipe1.getRecipeName());
-            db2.child("method").setValue(recipe1.getMethod());
-            db2.child("servings").setValue(recipe1.getServings());
-            db2.child("price").setValue(recipe1.getPrice());
+            db.child("recipeName").setValue(recipe1.getRecipeName());
+            db.child("method").setValue(recipe1.getMethod());
+            db.child("servings").setValue(recipe1.getServings());
+            db.child("price").setValue(recipe1.getPrice());
+
+        if(imageUri != null){
+            storage1 = FirebaseStorage.getInstance().getReferenceFromUrl(img);
+            storage1.delete();
+
+            StorageReference stReference = storage2.child(System.currentTimeMillis()+ "." + obtainFileExtension(imageUri));
+
+            uploadTask = stReference.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            try {
+                                if (taskSnapshot.getMetadata() != null) {
+                                    if (taskSnapshot.getMetadata().getReference() != null) {
+                                        Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                        result.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                String imageUrl = uri.toString();
+                                                recipe1.setImageUrl(imageUrl);
+                                                db.child("imageUrl").setValue(recipe1.getImageUrl());
+                                            }
+                                        });
+                                    }
+                                }
+                                
+                            }catch(Exception e){
+                                System.out.println(e.getMessage());
+                            }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(DisplayRecipeScroll.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+        }else{
+
+        }
 
     }
 

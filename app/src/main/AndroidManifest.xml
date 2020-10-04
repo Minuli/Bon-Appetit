@@ -21,6 +21,14 @@
         <activity android:name=".orders_table" />
         <activity android:name=".ViewRecipeNew" />
         <activity android:name=".AddRecipies" />
+        <activity android:name=".UserLoginPage" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".custregaddprofilepic"></activity>
+        <activity android:name=".addPost" />
+        <activity android:name=".customerRegistration" android:parentActivityName=".UserLoginPage">
+        </activity>
+        <activity android:name=".orders_table"></activity>
+        <activity android:name=".AddRecipies" />
         <activity android:name=".UserLoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,18 +61,26 @@
         <activity android:name=".payment_two"></activity>
         <activity android:name=".update_stock" />
         <activity android:name=".updatePost" />
-        <activity android:name=".HomepageActivityNew" >
-
+        <activity android:name=".Settings"></activity>
         </activity>
         <activity android:name=".DisplayIngredientsBackend" />
         <activity android:name=".UploadButton">
-
+        </activity>
+        <activity android:name=".HomepageActivityNew">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".DisplayRecipeScroll"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddRecipesNew"></activity>
+        <activity android:name=".AddRecipesNew">
+        </activity>
+        <activity android:name=".recipe_table" />
+        <activity android:name=".AddIngredients" />
+        <activity android:name=".ViewRecipeBackend" />
     </application>
 
 </manifest>

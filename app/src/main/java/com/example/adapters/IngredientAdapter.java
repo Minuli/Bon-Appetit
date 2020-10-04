@@ -1,15 +1,15 @@
-package com.example.bon_apetit;
+package com.example.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Models.Ingredients;
-import com.squareup.picasso.Picasso;
+import com.example.bon_apetit.DisplayIngredientsBackend;
+import com.example.bon_apetit.R;
 
 import java.util.List;
 

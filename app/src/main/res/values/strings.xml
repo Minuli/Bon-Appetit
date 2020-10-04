@@ -211,7 +211,6 @@
     <string name="addpost">addpost</string>
     <string name="foodhub">Food Hub</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_view_full_recipe_new">ScrollingActivity</string>
     <string name="title_activity_display_recipe_scroll">ScrollingActivity</string>
     <string name="servings">Servings</string>

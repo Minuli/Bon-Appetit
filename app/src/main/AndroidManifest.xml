@@ -24,7 +24,6 @@
         <activity android:name=".ViewRecipeNew" />
         <activity android:name=".AddRecipies" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".custregaddprofilepic"></activity>
         <activity android:name=".addPost" />
         <activity android:name=".customerRegistration" android:parentActivityName=".UserLoginPage">
         </activity>

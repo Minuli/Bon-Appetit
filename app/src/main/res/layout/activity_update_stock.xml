@@ -6,57 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".update_stock">
 
-    <RadioGroup
-        android:id="@+id/radio_group"
-        android:layout_width="258dp"
-        android:layout_height="28dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/lblup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_ROL">
-
-        <RadioButton
-            android:id="@+id/rmeasurekg"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/measureunitKg"
-            tools:layout_editor_absoluteX="-139dp"
-            tools:layout_editor_absoluteY="654dp" />
-
-        <RadioButton
-            android:id="@+id/rmeasureL"
-            android:layout_width="82dp"
-            android:layout_height="wrap_content"
-            android:text="@string/measureunitliters" />
-
-        <RadioButton
-            android:id="@+id/rmeasureOther"
-            android:layout_width="77dp"
-            android:layout_height="wrap_content"
-            android:text="@string/measureunitother" />
-
-    </RadioGroup>
-
     <EditText
         android:id="@+id/txt_ROL"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="132dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
         android:background="@drawable/rectangletxtbox"
         android:ems="10"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/lblup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblqty"
-        app:layout_constraintVertical_bias="0.823" />
+        app:layout_constraintTop_toBottomOf="@+id/lblqty" />
 
     <TextView
         android:id="@+id/lblqty3"
@@ -140,9 +104,6 @@
         app:layout_constraintVertical_bias="0.127" />
 
     <EditText
-        android:focusable="false"
-        android:clickable="false"
-        android:enabled="false"
         android:id="@+id/txt_inventory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -151,7 +112,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/rectangletxtbox"
+        android:clickable="false"
         android:ems="10"
+        android:enabled="false"
+        android:focusable="false"
         android:hint="@string/dummy_val_ingreditents"
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
@@ -200,15 +164,14 @@
         android:id="@+id/lblup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="448dp"
         android:text="@string/lblUP"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txt_UP"
@@ -227,16 +190,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblup"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnstockupdate"
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/brown"
+        android:background="@drawable/normalbutton"
         android:text="@string/lbl_btn_update"
         android:textAllCaps="false"
         android:textSize="20sp"
@@ -250,14 +213,27 @@
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/red"
+        android:background="@drawable/cancel_button_background"
+        android:textColor="@color/white"
         android:text="@string/delete"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.728"
         app:layout_constraintStart_toEndOf="@+id/btnstockupdate"
         app:layout_constraintTop_toBottomOf="@+id/txt_UP" />
+
+    <Spinner
+        android:id="@+id/stockUnit"
+        android:layout_width="104dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,7 @@ public class nav extends AppCompatActivity {
                         switch (item.getItemId()){
 
                             case R.id.nav_home:
-                                Intent home = new Intent(nav.this,FrontEndHome.class);
+                                Intent home = new Intent(nav.this,HomepageActivityNew.class);
 
                                 startActivity(home);
                                 break;

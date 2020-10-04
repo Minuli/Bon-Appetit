@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +33,7 @@ public class HomepageActivityNew extends AppCompatActivity {
     List<Recipes> recipe;
     ImageView image;
     TextView recipeName;
+    Button hamBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,7 @@ public class HomepageActivityNew extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         image = findViewById(R.id.imageUpload);
         recipeName = findViewById(R.id.recipeName);
-
+        hamBtn=findViewById(R.id.ham_setting);
         recipe = new ArrayList<>();
         db = FirebaseDatabase.getInstance().getReference("Recipes/Description");
 
@@ -59,6 +63,13 @@ public class HomepageActivityNew extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        hamBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentSet=new Intent(getApplicationContext(),Settings.class);
+                startActivity(intentSet);
             }
         });
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -65,7 +66,10 @@ public class payment_two extends AppCompatActivity {
         pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"Payment Successfully Recorded",Toast.LENGTH_LONG).show();
                 dbref.child("Active Order").child(String.valueOf(System.currentTimeMillis())).setValue(cart);
+                Intent intenthome=new Intent(getApplicationContext(),HomepageActivityNew.class);
+                startActivity(intenthome);
 
             }
         });

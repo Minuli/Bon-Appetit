@@ -16,7 +16,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/ingredient1"
+            android:text="@string/ingredient"
             android:textSize="18sp"
 
             />
@@ -30,7 +30,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="204dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/amount5"
+            android:text="@string/amount3"
             android:textSize="18sp" />
 
         <Button
@@ -43,7 +43,7 @@
             android:layout_marginEnd="104dp"
             android:layout_marginBottom="8dp"
             android:background="@color/brown"
-            android:text="@string/update"
+            android:text="update"
             android:textSize="14sp" />
 
         <Button

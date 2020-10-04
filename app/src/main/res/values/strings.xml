@@ -223,6 +223,7 @@
     <string name="update_recipe">Update Recipe</string>
     <string name="delete_recipe">Delete Recipe</string>
     <string name="upload_image">Upload Image</string>
+    <string name="Contanctno">Contact Number</string>
     <string-array name="unit">
         <item>g</item>
         <item>kg</item>

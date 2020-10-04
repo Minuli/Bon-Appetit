@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".stock_table"
-    >
+    tools:context=".stock_table">
 
 
     <EditText
@@ -184,34 +183,34 @@
     <Button
         android:id="@+id/btnupdate_stock"
         android:layout_width="173dp"
-        android:layout_height="70dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="17dp"
         android:background="@drawable/normalbutton"
-        android:padding="60px"
         android:text="@string/lbl_btn_update"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtupdatename"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.46" />
 
     <Button
         android:id="@+id/btnaddstock"
-        android:layout_width="177dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="19dp"
+        android:layout_width="173dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="16dp"
+
         android:background="@drawable/normalbutton"
-        android:padding="60px"
         android:text="@string/addstock"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btnupdate_stock"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnupdate_stock"
+        app:layout_constraintStart_toEndOf="@+id/btnupdate_stock"
+        app:layout_constraintTop_toBottomOf="@+id/txtupdatename"
         app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
